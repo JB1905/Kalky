@@ -7,10 +7,10 @@ import './Menu.css';
 export const Menu = () => (
   <nav className="menu">
     <ul>
-      <MenuList />
       <li>
         <NavLink to="/currency">Currency</NavLink>
       </li>
+      <MenuList />
     </ul>
   </nav>
 );

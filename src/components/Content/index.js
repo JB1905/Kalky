@@ -24,9 +24,10 @@ export class Content extends Component {
           <FontAwesomeIcon icon={faBars} />
         </button>
 
+        <Redirect exact from="/" to="/currency" />
+
         <Switch>
           <Route exact path="/currency" component={Currency} />
-          <Redirect exact from="/" to="/currency" />
           <ContentList />
         </Switch>
       </div>
