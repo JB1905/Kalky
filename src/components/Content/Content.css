@@ -18,5 +18,5 @@
 }
 
 .menu__toggle:active {
-  transform: scale(0.92);
+  transform: scale(0.9);
 }

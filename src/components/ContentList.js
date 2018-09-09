@@ -7,4 +7,6 @@ import Units from '../containers/Converters/Units/Units';
 export const ContentList = () =>
   convert()
     .measures()
-    .map(val => <Route exact path={`/${val}`} key={val} component={Units} />);
+    .map(route => (
+      <Route exact path={`/${route}`} key={route} component={Units} />
+    ));

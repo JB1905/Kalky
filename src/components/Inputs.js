@@ -9,9 +9,11 @@ export class ConvertInputs extends Component {
     if (
       this.props.location.pathname === '/temperature' ||
       this.props.location.pathname === '/pressure'
-    )
+    ) {
       this.setState({ positive: true });
-    else this.setState({ positive: false });
+    } else {
+      this.setState({ positive: false });
+    }
   }
 
   operation(key) {

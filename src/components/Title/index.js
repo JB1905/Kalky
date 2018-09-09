@@ -2,8 +2,8 @@ import React from 'react';
 
 import './Title.css';
 
-import { titleString } from '../../helpers';
+import { toTitle, locationToTitle } from '../../helpers';
 
 export const Title = ({ location }) => (
-  <h2 className="screen__title">{titleString(location)}</h2>
+  <h2 className="screen__title">{locationToTitle(toTitle(location))}</h2>
 );

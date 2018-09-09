@@ -3,7 +3,7 @@ import convert from 'convert-units';
 
 import '../Convert.css';
 
-import Screen from '../../../components/Screen';
+import { Screen } from '../../../components/Screen';
 import { ConvertInputs } from '../../../components/Inputs';
 import { Title } from '../../../components/Title';
 import { SelectUnit } from '../../../components/SelectUnit';
@@ -25,11 +25,11 @@ export default class Units extends Component {
   to = to => this.setState({ to });
 
   convert = () => {
-    const out = convert(this.state.val)
+    const converted = convert(this.state.val)
       .from(this.state.from)
       .to(this.state.to);
 
-    this.setState({ converted: out });
+    this.setState({ converted });
   };
 
   render() {

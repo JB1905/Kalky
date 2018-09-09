@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 
 export class SelectCurrency extends Component {
-  state = { val: '', values: [] };
+  state = { possibilities: [], selected: '' };
 
   change = e => {
+    this.setState({ selected: e.target.value });
     this.props.onChange(e.target.value);
-    this.setState({ val: e.target.value });
   };
 
   componentDidUpdate(prevProps) {
     if (prevProps.units !== this.props.units && prevProps.units.length === 0) {
-      const value = Object.keys(this.props.units);
+      const possibilities = Object.keys(this.props.units);
 
-      this.setState({ values: value, val: value[0] });
+      this.setState({ possibilities, selected: possibilities[0] });
     }
   }
 
   render() {
     return (
-      <select value={this.state.val} onChange={this.change}>
-        {this.state.values.map(val => (
-          <option key={val} value={val}>
-            {val}
+      <select value={this.state.selected} onChange={this.change}>
+        {this.state.possibilities.map(possibility => (
+          <option key={possibility} value={possibility}>
+            {possibility}
           </option>
         ))}
       </select>
