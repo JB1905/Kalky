@@ -20,15 +20,19 @@ export class ConvertKeyboard extends Component {
     if (typeof key === 'number') this.state.value.push(key);
     else {
       switch (key) {
-        case 'point': {
+        case 'point':
           if (!this.state.value.includes('.')) this.state.value.push('.');
+          break;
+
+        case 'delete': {
+          this.state.value.pop();
+
+          if (this.state.value.length === 1 && this.state.value.includes('-')) {
+            this.state.value.splice(0, this.state.value.length);
+          }
 
           break;
         }
-
-        case 'delete':
-          this.state.value.pop();
-          break;
 
         case 'clear':
           this.state.value.splice(0, this.state.value.length);
