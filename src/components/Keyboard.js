@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export class ConvertInputs extends Component {
-  state = { positive: null, value: [], toggle: false };
+export class ConvertKeyboard extends Component {
+  state = { positive: null, value: [] };
 
   componentDidMount() {
     if (
@@ -21,9 +21,7 @@ export class ConvertInputs extends Component {
     else {
       switch (key) {
         case 'point': {
-          if (this.state.value.includes('.') === false) {
-            this.state.value.push('.');
-          }
+          if (!this.state.value.includes('.')) this.state.value.push('.');
 
           break;
         }
@@ -37,12 +35,12 @@ export class ConvertInputs extends Component {
           break;
 
         case 'positive': {
-          if (this.state.toggle) {
-            this.state.value.unshift('-');
-            this.setState({ toggle: false });
-          } else {
-            this.state.value.shift();
-            this.setState({ toggle: true });
+          if (
+            (this.state.value.length === 1 && !this.state.value.includes(0)) ||
+            this.state.value.length > 1
+          ) {
+            if (!this.state.value.includes('-')) this.state.value.unshift('-');
+            else this.state.value.shift();
           }
 
           break;

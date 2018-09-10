@@ -4,7 +4,7 @@ import fx from 'money';
 import '../Convert.css';
 
 import { Screen } from '../../../components/Screen';
-import { ConvertInputs } from '../../../components/Inputs';
+import { ConvertKeyboard } from '../../../components/Keyboard';
 import { Title } from '../../../components/Title';
 import { SelectCurrency } from '../../../components/SelectCurrency';
 import { getCurrency } from '../../../api';
@@ -61,7 +61,7 @@ export default class Currency extends Component {
 
         <Screen value={this.state.converted || '0'} />
 
-        <ConvertInputs {...this.props} clicked={this.handleClick} />
+        <ConvertKeyboard {...this.props} clicked={this.handleClick} />
       </React.Fragment>
     );
   }

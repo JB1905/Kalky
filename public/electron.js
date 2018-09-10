@@ -73,7 +73,27 @@ const createWindow = () => {
       submenu: [
         { role: 'reload' },
         { role: 'forcereload' },
-        { role: 'toggledevtools' }
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        {
+          label: 'Apperance',
+          submenu: [
+            {
+              label: 'Light',
+              type: 'radio',
+              click() {
+                mainWindow.setVibrancy('medium-light');
+              }
+            },
+            {
+              label: 'Dark',
+              type: 'radio',
+              click() {
+                mainWindow.setVibrancy('ultra-dark');
+              }
+            }
+          ]
+        }
       ]
     });
   }

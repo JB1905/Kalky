@@ -12,10 +12,10 @@
 - color converter
 - history
 - memory
-- light mode
 
 ## Next v0
 #### New Feature
+- light mode
 - basic calculator view
 - scientific view
 - programmer view
