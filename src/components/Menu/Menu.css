@@ -1,11 +1,15 @@
 .menu {
-  border-right: 1px solid #444;
+  border-right: 1px solid #aaa;
   padding-top: 26px;
   position: fixed;
   height: 100vh;
   overflow: auto;
   right: 250px;
   width: 250px;
+}
+
+.dark .menu {
+  border-right: 1px solid #444;
 }
 
 .menu ul {
@@ -38,5 +42,9 @@
 }
 
 .menu a.active {
+  background-color: rgba(80, 80, 80, 0.3);
+}
+
+.dark .menu a.active {
   background-color: rgba(255, 255, 255, 0.3);
 }
