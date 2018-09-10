@@ -6,7 +6,7 @@ import '../Convert.css';
 import { Screen } from '../../../components/Screen';
 import { ConvertKeyboard } from '../../../components/Keyboard';
 import { Title } from '../../../components/Title';
-import { SelectUnit } from '../../../components/SelectUnit';
+import SelectUnit from '../../../components/SelectUnit';
 
 export default class Units extends Component {
   state = { val: null, from: '', to: '', converted: null };

@@ -20,7 +20,7 @@ const createWindow = () => {
     height: mainWindowState.height,
     show: false,
     fullscreen: false,
-    vibrancy: 'ultra-dark',
+    vibrancy: 'medium-light',
     titleBarStyle: 'hidden',
     resizable: false
   });
@@ -83,6 +83,7 @@ const createWindow = () => {
               type: 'radio',
               click() {
                 mainWindow.setVibrancy('medium-light');
+                mainWindow.webContents.send('light');
               }
             },
             {
@@ -90,6 +91,7 @@ const createWindow = () => {
               type: 'radio',
               click() {
                 mainWindow.setVibrancy('ultra-dark');
+                mainWindow.webContents.send('dark');
               }
             }
           ]

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import convert from 'convert-units';
 
-export class SelectUnit extends Component {
+export default class SelectUnit extends Component {
   state = { possibilities: [], selected: '' };
 
   change = e => {

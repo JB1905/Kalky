@@ -6,7 +6,7 @@ import '../Convert.css';
 import { Screen } from '../../../components/Screen';
 import { ConvertKeyboard } from '../../../components/Keyboard';
 import { Title } from '../../../components/Title';
-import { SelectCurrency } from '../../../components/SelectCurrency';
+import SelectCurrency from '../../../components/SelectCurrency';
 import { getCurrency } from '../../../api';
 
 export default class Currency extends Component {

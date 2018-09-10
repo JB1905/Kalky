@@ -15,10 +15,9 @@
 
 ## Next v0
 #### New Feature
-- light mode
 - basic calculator view
-- scientific view
-- programmer view
+- scientific calculator view
+- programmer calculator view
 - add switch units for converters
 
 #### Improvement
@@ -28,6 +27,10 @@
 #### Bug Fix
 - fix point input
 - fix positive values error
+
+## 0.5.1 (2018-09-10)
+#### New Feature
+- light mode
 
 ## 0.5.0 (2018-09-09)
 #### New Feature
