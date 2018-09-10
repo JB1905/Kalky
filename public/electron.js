@@ -38,7 +38,7 @@ const createWindow = () => {
     ready = true;
   });
 
-  ipcMain.on('menu-toggle', (event, arg) => {
+  ipcMain.on('menu-toggle', (e, arg) => {
     if (mainWindowState.width === 250) mainWindow.setSize(500, 400, true);
     else mainWindow.setSize(250, 400, true);
   });
@@ -51,32 +51,10 @@ const createWindow = () => {
 
   const template = [
     {
-      role: 'window',
-      submenu: [{ role: 'minimize' }, { role: 'close' }]
-    },
-    {
-      role: 'help',
-      submenu: [
-        {
-          label: 'Learn More',
-          click() {
-            require('electron').shell.openExternal('https://electronjs.org');
-          }
-        }
-      ]
-    }
-  ];
-
-  if (isDev) {
-    template.unshift({
       label: 'View',
       submenu: [
-        { role: 'reload' },
-        { role: 'forcereload' },
-        { role: 'toggledevtools' },
-        { type: 'separator' },
         {
-          label: 'Apperance',
+          label: 'Appearance',
           submenu: [
             {
               label: 'Light',
@@ -96,6 +74,34 @@ const createWindow = () => {
             }
           ]
         }
+      ]
+    },
+    {
+      role: 'window',
+      submenu: [{ role: 'minimize' }, { role: 'close' }]
+    },
+    {
+      role: 'help',
+      submenu: [
+        {
+          label: 'See on GitHub',
+          click() {
+            require('electron').shell.openExternal(
+              'https://github.com/JB1905/Kalky'
+            );
+          }
+        }
+      ]
+    }
+  ];
+
+  if (isDev) {
+    template.unshift({
+      label: 'Developer',
+      submenu: [
+        { role: 'reload' },
+        { role: 'forcereload' },
+        { role: 'toggledevtools' }
       ]
     });
   }
