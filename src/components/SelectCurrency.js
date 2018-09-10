@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class SelectCurrency extends Component {
+export default class SelectCurrency extends Component {
   state = { possibilities: [], selected: '' };
 
   change = e => {

@@ -1,11 +1,15 @@
 .content {
   position: fixed;
-  background-color: #2a2a2e99;
+  background-color: #d0d0d099;
   padding: 26px 10px 12px 10px;
   width: 250px;
   height: 100vh;
-  top: 0;
+  top: 0px;
   right: 0px;
+}
+
+.dark .content {
+  background-color: #2a2a2e99;
 }
 
 .menu__toggle {

@@ -20,7 +20,7 @@ const createWindow = () => {
     height: mainWindowState.height,
     show: false,
     fullscreen: false,
-    vibrancy: 'ultra-dark',
+    vibrancy: 'medium-light',
     titleBarStyle: 'hidden',
     resizable: false
   });
@@ -73,7 +73,29 @@ const createWindow = () => {
       submenu: [
         { role: 'reload' },
         { role: 'forcereload' },
-        { role: 'toggledevtools' }
+        { role: 'toggledevtools' },
+        { type: 'separator' },
+        {
+          label: 'Apperance',
+          submenu: [
+            {
+              label: 'Light',
+              type: 'radio',
+              click() {
+                mainWindow.setVibrancy('medium-light');
+                mainWindow.webContents.send('light');
+              }
+            },
+            {
+              label: 'Dark',
+              type: 'radio',
+              click() {
+                mainWindow.setVibrancy('ultra-dark');
+                mainWindow.webContents.send('dark');
+              }
+            }
+          ]
+        }
       ]
     });
   }
