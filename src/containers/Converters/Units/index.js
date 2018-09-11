@@ -4,9 +4,9 @@ import convert from 'convert-units';
 import '../Convert.css';
 
 import { Screen } from '../../../components/Screen';
-import { ConvertKeyboard } from '../../../components/Keyboard';
+import { ConverterKeyboard } from '../../../components/Keyboard';
 import { Title } from '../../../components/Title';
-import SelectUnit from '../../../components/SelectUnit';
+import { SelectUnit } from '../../../components/Select';
 
 export default class Units extends Component {
   state = { val: null, from: '', to: '', converted: null };
@@ -43,7 +43,7 @@ export default class Units extends Component {
 
         <Screen value={this.state.converted || '0'} />
 
-        <ConvertKeyboard {...this.props} clicked={this.handleClick} />
+        <ConverterKeyboard {...this.props} clicked={this.handleClick} />
       </React.Fragment>
     );
   }
