@@ -10,7 +10,7 @@ import { ContentList } from '../ContentList';
 
 const { ipcRenderer } = window.require('electron');
 
-export class Content extends Component {
+export default class Content extends Component {
   toggle = () => ipcRenderer.send('menu-toggle', 'true');
 
   render() {
