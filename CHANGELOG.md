@@ -27,10 +27,15 @@
 #### Bug Fix
 - fix point input
 
+## 0.5.3 (2018-09-15)
+#### Change
+- auto theme based on system settings
+- removed dark mode change in app settings
+
 ## 0.5.2 (2018-09-10)
 #### Bug Fix
 - moved dev tools in development mode to Developer tab
-- fix positive values error
+- fixed positive values error
 
 ## 0.5.1 (2018-09-10)
 #### New Feature

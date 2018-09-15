@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export class ConvertKeyboard extends Component {
+export default class ConverterKeyboard extends Component {
   state = { positive: null, value: [] };
 
   componentDidMount() {
