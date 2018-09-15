@@ -1,4 +1,11 @@
-const { app, BrowserWindow, Menu, ipcMain } = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  ipcMain,
+  systemPreferences
+} = require('electron');
+
 const path = require('path');
 const isDev = require('electron-is-dev');
 const windowState = require('electron-window-state');
@@ -33,7 +40,13 @@ const createWindow = () => {
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
 
+  systemPreferences.subscribeNotification(
+    'AppleInterfaceThemeChangedNotification',
+    () => setTheme(systemPreferences.isDarkMode())
+  );
+
   mainWindow.once('ready-to-show', () => {
+    setTheme(systemPreferences.isDarkMode());
     mainWindow.show();
     ready = true;
   });
@@ -50,32 +63,6 @@ const createWindow = () => {
   });
 
   const template = [
-    {
-      label: 'View',
-      submenu: [
-        {
-          label: 'Appearance',
-          submenu: [
-            {
-              label: 'Light',
-              type: 'radio',
-              click() {
-                mainWindow.setVibrancy('medium-light');
-                mainWindow.webContents.send('light');
-              }
-            },
-            {
-              label: 'Dark',
-              type: 'radio',
-              click() {
-                mainWindow.setVibrancy('ultra-dark');
-                mainWindow.webContents.send('dark');
-              }
-            }
-          ]
-        }
-      ]
-    },
     {
       role: 'window',
       submenu: [{ role: 'minimize' }, { role: 'close' }]
@@ -123,6 +110,16 @@ const createWindow = () => {
 
   const menu = Menu.buildFromTemplate(template);
   Menu.setApplicationMenu(menu);
+};
+
+const setTheme = theme => {
+  if (theme) {
+    mainWindow.setVibrancy('ultra-dark');
+    mainWindow.webContents.send('dark');
+  } else {
+    mainWindow.setVibrancy('medium-light');
+    mainWindow.webContents.send('light');
+  }
 };
 
 app.on('before-quit', () => (mainWindow.forceClose = true));
