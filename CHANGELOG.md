@@ -21,11 +21,20 @@
 - add switch units for converters
 
 #### Improvement
-- reduce app size
 - better screen values output (max length)
 
 #### Bug Fix
 - fix point input
+
+## 0.6.0 (2018-09-22)
+#### Improvement
+- reduced app size from `243MB` to `124MB`
+
+#### Dependencies
+- update Electron to `^3.0.0` stable
+
+#### Repository Changes
+- disabled map files for build
 
 ## 0.5.3 (2018-09-15)
 #### Change
