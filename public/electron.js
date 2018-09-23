@@ -27,9 +27,10 @@ const createWindow = () => {
     height: mainWindowState.height,
     show: false,
     fullscreen: false,
+    maximizable: false,
+    resizable: false,
     vibrancy: 'medium-light',
-    titleBarStyle: 'hidden',
-    resizable: false
+    titleBarStyle: 'hidden'
   });
 
   mainWindowState.manage(mainWindow);
