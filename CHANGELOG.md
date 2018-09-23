@@ -8,17 +8,18 @@
 
 ## Next v1
 #### New Feature
-- date calculator
-- color converter
+- scientific calculator view
+- programmer calculator view
 - history
 - memory
 
 ## Next v0
 #### New Feature
 - basic calculator view
-- scientific calculator view
-- programmer calculator view
 - add switch units for converters
+- keyboard input
+- date calculator
+- color converter
 
 #### Improvement
 - better screen values output (max length)
@@ -31,7 +32,7 @@
 - reduced app size from `243MB` to `124MB`
 
 #### Dependencies
-- update Electron to `^3.0.0` stable
+- updated Electron to `^3.0.0` stable
 
 #### Repository Changes
 - disabled map files for build
