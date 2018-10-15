@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { MenuList } from '../MenuList';
 
-import './Menu.css';
+import MenuList from '../MenuList';
 
-export const Menu = () => (
+import './Menu.scss';
+
+const Menu = () => (
   <nav className="menu">
     <ul>
       <li>
@@ -14,3 +15,5 @@ export const Menu = () => (
     </ul>
   </nav>
 );
+
+export default Menu;

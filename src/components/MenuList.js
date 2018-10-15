@@ -4,7 +4,7 @@ import convert from 'convert-units';
 
 import { toTitle } from '../helpers';
 
-export const MenuList = () =>
+const MenuList = () =>
   convert()
     .measures()
     .sort()
@@ -13,3 +13,5 @@ export const MenuList = () =>
         <NavLink to={`/${item}`}>{toTitle(item)}</NavLink>
       </li>
     ));
+
+export default MenuList;

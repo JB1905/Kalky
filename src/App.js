@@ -1,34 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Menu } from './components/Menu';
+import Drag from './components/Drag';
+import Menu from './components/Menu';
 import Content from './components/Content';
-
-import './App.css';
 
 const { ipcRenderer } = window.require('electron');
 
-export default class App extends Component {
-  componentDidMount() {
-    ipcRenderer.on('light', (event, data) =>
-      document.body.classList.remove('dark')
-    );
+ipcRenderer.on('light', (e, data) => document.body.classList.remove('dark'));
+ipcRenderer.on('dark', (e, data) => document.body.classList.add('dark'));
 
-    ipcRenderer.on('dark', (event, data) =>
-      document.body.classList.add('dark')
-    );
-  }
+const App = () => (
+  <Router>
+    <>
+      <Drag />
+      <Menu />
+      <Content />
+    </>
+  </Router>
+);
 
-  render() {
-    return (
-      <Router>
-        <React.Fragment>
-          <div className="drag" />
-
-          <Menu />
-          <Content />
-        </React.Fragment>
-      </Router>
-    );
-  }
-}
+export default App;
