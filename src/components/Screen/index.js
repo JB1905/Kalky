@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Screen.css';
+import './Screen.scss';
 
 export const Screen = ({ className, value }) => (
   <div className={className}>

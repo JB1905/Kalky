@@ -4,9 +4,11 @@ import convert from 'convert-units';
 
 import Units from '../containers/Converters/Units';
 
-export const ContentList = () =>
+const ContentList = () =>
   convert()
     .measures()
     .map(route => (
       <Route exact path={`/${route}`} key={route} component={Units} />
     ));
+
+export default ContentList;

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import fx from 'money';
 
-import '../Convert.css';
-
 import { Screen } from '../../../components/Screen';
+import Title from '../../../components/Title';
 import { ConverterKeyboard } from '../../../components/Keyboard';
-import { Title } from '../../../components/Title';
 import { SelectCurrency } from '../../../components/Select';
+
+import '../Convert.scss';
+
 import { getCurrency } from '../../../api';
 
 export default class Currency extends Component {
@@ -50,7 +51,7 @@ export default class Currency extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Title location={this.props.location.pathname} />
         <span className="date">{this.state.date}</span>
 
@@ -62,7 +63,7 @@ export default class Currency extends Component {
         <Screen value={this.state.converted || '0'} />
 
         <ConverterKeyboard {...this.props} clicked={this.handleClick} />
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import convert from 'convert-units';
 
-import '../Convert.css';
-
 import { Screen } from '../../../components/Screen';
+import Title from '../../../components/Title';
 import { ConverterKeyboard } from '../../../components/Keyboard';
-import { Title } from '../../../components/Title';
 import { SelectUnit } from '../../../components/Select';
+
+import '../Convert.scss';
 
 export default class Units extends Component {
   state = { val: null, from: '', to: '', converted: null };
@@ -34,7 +34,7 @@ export default class Units extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <Title location={this.props.location.pathname} />
         <Screen value={this.state.val || '0'} />
 
@@ -44,7 +44,7 @@ export default class Units extends Component {
         <Screen value={this.state.converted || '0'} />
 
         <ConverterKeyboard {...this.props} clicked={this.handleClick} />
-      </React.Fragment>
+      </>
     );
   }
 }
