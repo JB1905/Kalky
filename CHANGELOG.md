@@ -25,7 +25,7 @@
 - better screen values output (max length)
 
 #### Bug Fix
-- fix point input
+- fixed point input
 
 ## 0.6.0 (2018-09-22)
 #### Improvement

@@ -7,17 +7,15 @@ import Content from './components/Content';
 
 const { ipcRenderer } = window.require('electron');
 
-ipcRenderer.on('light', (e, data) => document.body.classList.remove('dark'));
-ipcRenderer.on('dark', (e, data) => document.body.classList.add('dark'));
+export default function App() {
+  ipcRenderer.on('light', () => document.body.classList.remove('dark'));
+  ipcRenderer.on('dark', () => document.body.classList.add('dark'));
 
-const App = () => (
-  <Router>
-    <>
+  return (
+    <Router>
       <Drag />
       <Menu />
       <Content />
-    </>
-  </Router>
-);
-
-export default App;
+    </Router>
+  );
+}

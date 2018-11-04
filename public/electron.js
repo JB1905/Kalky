@@ -29,7 +29,6 @@ const createWindow = () => {
     fullscreen: false,
     maximizable: false,
     resizable: false,
-    vibrancy: 'medium-light',
     titleBarStyle: 'hidden'
   });
 
@@ -52,7 +51,7 @@ const createWindow = () => {
     ready = true;
   });
 
-  ipcMain.on('menu-toggle', (e, arg) => {
+  ipcMain.on('menu-toggle', () => {
     if (mainWindowState.width === 250) mainWindow.setSize(500, 400, true);
     else mainWindow.setSize(250, 400, true);
   });
@@ -132,6 +131,6 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  if (mainWindow === null) createWindow();
-  else if (mainWindow !== null && ready) mainWindow.show();
+  if (!mainWindow) createWindow();
+  else if (mainWindow && ready) mainWindow.show();
 });

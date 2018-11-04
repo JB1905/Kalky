@@ -1,0 +1,12 @@
+.menu__toggle {
+  left: 14px;
+  transition: transform 120ms ease;
+  cursor: pointer;
+  position: absolute;
+  font-size: 17px;
+  top: 27px;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

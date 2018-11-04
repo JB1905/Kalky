@@ -1,6 +1,4 @@
-import SelectCurrency from './SelectCurrency';
-import SelectUnit from './SelectUnit';
+import './Select.scss';
 
-import './Select.css';
-
-export { SelectCurrency, SelectUnit };
+export { default as SelectCurrency } from './Currency';
+export { default as SelectUnit } from './Unit';

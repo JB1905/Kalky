@@ -6,21 +6,10 @@
   height: 100vh;
   top: 0;
   right: 0;
-}
 
-.dark .content {
-  background-color: #2a2a2e99;
-}
-
-.menu__toggle {
-  transition: transform 120ms ease;
-  cursor: pointer;
-  left: 14px;
-  position: absolute;
-  font-size: 17px;
-  top: 27px;
-
-  &:active {
-    transform: scale(0.9);
+  @at-root {
+    .dark & {
+      background-color: #2a2a2e99;
+    }
   }
 }

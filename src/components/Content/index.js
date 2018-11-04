@@ -1,32 +1,27 @@
-import React, { Component } from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect } from 'react';
+import { withRouter } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 
-import Currency from '../../containers/Converters/Currency/Currency';
-import ContentList from '../ContentList';
+import { MenuToggle } from '../Toggle';
+
+import Currency from '../../containers/Converters/Currency';
+import { ContentList } from '../Lists';
 
 import './Content.scss';
 
-const { ipcRenderer } = window.require('electron');
+const Content = ({ history }) => {
+  useEffect(() => history.push({ pathname: '/currency' }), []);
 
-export default class Content extends Component {
-  toggle = () => ipcRenderer.send('menu-toggle', 'true');
+  return (
+    <div className="content">
+      <MenuToggle />
 
-  render() {
-    return (
-      <div className="content">
-        <button type="button" className="menu__toggle" onClick={this.toggle}>
-          <FontAwesomeIcon icon={faBars} />
-        </button>
+      <Switch>
+        <Route exact path="/currency" component={Currency} />
+        <ContentList />
+      </Switch>
+    </div>
+  );
+};
 
-        <Redirect exact from="/" to="/currency" />
-
-        <Switch>
-          <Route exact path="/currency" component={Currency} />
-          <ContentList />
-        </Switch>
-      </div>
-    );
-  }
-}
+export default withRouter(Content);

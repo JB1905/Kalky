@@ -1,50 +1,44 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import convert from 'convert-units';
 
-import { Screen } from '../../../components/Screen';
 import Title from '../../../components/Title';
-import { ConverterKeyboard } from '../../../components/Keyboard';
+import Screen from '../../../components/Screens';
+import { ConverterKeyboard } from '../../../components/Keyboards';
 import { SelectUnit } from '../../../components/Select';
 
 import '../Convert.scss';
 
-export default class Units extends Component {
-  state = { val: null, from: '', to: '', converted: null };
+export default function Units(props) {
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+  const [value, setValue] = useState('0');
+  const [converted, setConverted] = useState('0');
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.val !== this.state.val ||
-      prevState.from !== this.state.from ||
-      prevState.to !== this.state.to
-    )
-      this.convert();
-  }
+  if (value && from && to) {
+    useEffect(
+      () => {
+        setConverted(
+          convert(value)
+            .from(from)
+            .to(to)
+        );
 
-  handleClick = val => this.setState({ val });
-  from = from => this.setState({ from });
-  to = to => this.setState({ to });
-
-  convert = () => {
-    const converted = convert(this.state.val)
-      .from(this.state.from)
-      .to(this.state.to);
-
-    this.setState({ converted });
-  };
-
-  render() {
-    return (
-      <>
-        <Title location={this.props.location.pathname} />
-        <Screen value={this.state.val || '0'} />
-
-        <SelectUnit units={this.props.location.pathname} onChange={this.from} />
-        <SelectUnit units={this.props.location.pathname} onChange={this.to} />
-
-        <Screen value={this.state.converted || '0'} />
-
-        <ConverterKeyboard {...this.props} clicked={this.handleClick} />
-      </>
+        return null;
+      },
+      [value, from, to]
     );
   }
+
+  return (
+    <>
+      <Title location={props.location.pathname} />
+
+      <Screen value={value} />
+      <SelectUnit units={props.location.pathname} onChange={e => setFrom(e)} />
+      <SelectUnit units={props.location.pathname} onChange={e => setTo(e)} />
+      <Screen value={converted} />
+
+      <ConverterKeyboard {...props} clicked={e => setValue(e || '0')} />
+    </>
+  );
 }

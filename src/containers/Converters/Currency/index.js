@@ -1,69 +1,57 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import fx from 'money';
 
-import { Screen } from '../../../components/Screen';
 import Title from '../../../components/Title';
-import { ConverterKeyboard } from '../../../components/Keyboard';
+import Screen from '../../../components/Screens';
+import { ConverterKeyboard } from '../../../components/Keyboards';
 import { SelectCurrency } from '../../../components/Select';
 
 import '../Convert.scss';
 
 import { getCurrency } from '../../../api';
 
-export default class Currency extends Component {
-  state = {
-    date: 'Loading...',
-    from: '',
-    to: '',
-    rates: [],
-    val: '',
-    converted: null
-  };
+export default function Currency(props) {
+  const [date, setDate] = useState('Loading...');
+  const [rates, setRates] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     getCurrency().then(data => {
-      fx.rates = data.rates;
-
-      this.setState({ date: data.date.replace(/-/g, '.'), rates: fx.rates });
+      setDate(data.date.replace(/-/g, '.'));
+      setRates((fx.rates = data.rates));
     });
-  }
+  }, []);
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.val !== this.state.val ||
-      prevState.from !== this.state.from ||
-      prevState.to !== this.state.to
-    )
-      this.convert();
-  }
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
+  const [value, setValue] = useState('0');
+  const [converted, setConverted] = useState('0');
 
-  handleClick = val => this.setState({ val });
-  from = from => this.setState({ from });
-  to = to => this.setState({ to });
+  useEffect(
+    () => {
+      setConverted(
+        fx(value)
+          .from(from)
+          .to(to)
+      );
 
-  convert = () => {
-    const converted = fx(this.state.val)
-      .from(this.state.from)
-      .to(this.state.to);
+      return null;
+    },
+    [value, from, to]
+  );
 
-    this.setState({ converted });
-  };
+  return (
+    <>
+      <Title location={props.location.pathname} />
+      <span className="date">{date}</span>
 
-  render() {
-    return (
-      <>
-        <Title location={this.props.location.pathname} />
-        <span className="date">{this.state.date}</span>
+      <Screen value={value} />
 
-        <Screen value={this.state.val || '0'} />
+      <SelectCurrency units={rates} onChange={e => setFrom(e)} />
+      <SelectCurrency units={rates} onChange={e => setTo(e)} />
 
-        <SelectCurrency units={this.state.rates} onChange={this.from} />
-        <SelectCurrency units={this.state.rates} onChange={this.to} />
+      <Screen value={converted} />
 
-        <Screen value={this.state.converted || '0'} />
-
-        <ConverterKeyboard {...this.props} clicked={this.handleClick} />
-      </>
-    );
-  }
+      <ConverterKeyboard {...props} clicked={e => setValue(e || '0')} />
+    </>
+  );
 }

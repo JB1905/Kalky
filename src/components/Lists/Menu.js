@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import convert from 'convert-units';
 
-import { toTitle } from '../helpers';
+import { toTitle } from '../../helpers';
 
-const MenuList = () =>
+const Menu = () =>
   convert()
     .measures()
     .sort()
@@ -14,4 +14,4 @@ const MenuList = () =>
       </li>
     ));
 
-export default MenuList;
+export default Menu;
