@@ -21,6 +21,10 @@ body {
   user-select: none;
 
   * {
+    color: #888;
+  }
+
+  &.light * {
     color: #444;
   }
 

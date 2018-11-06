@@ -1,6 +1,6 @@
 .content {
+  background: transparent;
   position: fixed;
-  background-color: #d0d0d099;
   padding: 26px 10px 12px 10px;
   width: 250px;
   height: 100vh;
@@ -8,6 +8,10 @@
   right: 0;
 
   @at-root {
+    .light & {
+      background-color: #d0d0d099;
+    }
+
     .dark & {
       background-color: #2a2a2e99;
     }

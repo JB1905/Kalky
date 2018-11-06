@@ -45,10 +45,8 @@ export default function Currency(props) {
       <span className="date">{date}</span>
 
       <Screen value={value} />
-
       <SelectCurrency units={rates} onChange={e => setFrom(e)} />
       <SelectCurrency units={rates} onChange={e => setTo(e)} />
-
       <Screen value={converted} />
 
       <ConverterKeyboard {...props} clicked={e => setValue(e || '0')} />

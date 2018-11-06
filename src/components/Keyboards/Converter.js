@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import Input from '../Input';
 
-export default function Converter({ clicked, ...props }) {
+export default function Converter({ clicked, location }) {
   const [positive, setPositive] = useState(null);
   const [value] = useState([]);
 
   useEffect(() => {
     const routes = ['/temperature', '/pressure'];
 
-    if (routes.includes(props.location.pathname)) setPositive(true);
+    if (routes.includes(location.pathname)) setPositive(true);
     else setPositive(false);
 
     document.addEventListener('keydown', e => operation(e.key));
