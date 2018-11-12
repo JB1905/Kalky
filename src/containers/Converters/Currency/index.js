@@ -10,7 +10,7 @@ import '../Convert.scss';
 
 import { getCurrency } from '../../../api';
 
-export default function Currency(props) {
+export default function Currency({ location }) {
   const [date, setDate] = useState('Loading...');
   const [rates, setRates] = useState([]);
 
@@ -19,12 +19,14 @@ export default function Currency(props) {
       setDate(data.date.replace(/-/g, '.'));
       setRates((fx.rates = data.rates));
     });
+
+    return () => null;
   }, []);
 
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
-  const [value, setValue] = useState('0');
-  const [converted, setConverted] = useState('0');
+  const [value, setValue] = useState(0);
+  const [converted, setConverted] = useState(0);
 
   useEffect(
     () => {
@@ -34,22 +36,26 @@ export default function Currency(props) {
           .to(to)
       );
 
-      return null;
+      return () => null;
     },
     [value, from, to]
   );
 
   return (
     <>
-      <Title location={props.location.pathname} />
-      <span className="date">{date}</span>
+      <Title location={location.pathname} />
+      <time>{date}</time>
 
       <Screen value={value} />
-      <SelectCurrency units={rates} onChange={e => setFrom(e)} />
-      <SelectCurrency units={rates} onChange={e => setTo(e)} />
+
+      <section>
+        <SelectCurrency units={rates} onChange={e => setFrom(e)} />
+        <SelectCurrency units={rates} onChange={e => setTo(e)} />
+      </section>
+
       <Screen value={converted} />
 
-      <ConverterKeyboard {...props} clicked={e => setValue(e || '0')} />
+      <ConverterKeyboard location={location} clicked={e => setValue(e || 0)} />
     </>
   );
 }

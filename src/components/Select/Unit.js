@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import convert from 'convert-units';
 
-export default function Unit({ onChange, units, change }) {
+export default function Unit({ onChange, units }) {
   const [possibilities, setPossibilities] = useState([]);
   const [selected, setSelected] = useState('');
 
@@ -13,14 +12,12 @@ export default function Unit({ onChange, units, change }) {
 
   useEffect(
     () => {
-      const options = convert().possibilities(units.replace('/', ''));
+      setPossibilities(units);
+      setSelected(units[0]);
 
-      setPossibilities(options);
-      setSelected(options[0]);
-
-      if (change !== selected) setSelected(change);
+      return () => null;
     },
-    [units, change]
+    [units]
   );
 
   return (
@@ -36,6 +33,6 @@ export default function Unit({ onChange, units, change }) {
 
 Unit.propTypes = {
   onChange: PropTypes.func,
-  units: PropTypes.string,
+  units: PropTypes.oneOfType([PropTypes.shape(), PropTypes.array]),
   change: PropTypes.string
 };

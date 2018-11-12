@@ -13,14 +13,14 @@ const Content = ({ history }) => {
   useEffect(() => history.push({ pathname: '/currency' }), []);
 
   return (
-    <div className="content">
+    <main className="content">
       <MenuToggle />
 
       <Switch>
         <Route exact path="/currency" component={Currency} />
         <ContentList />
       </Switch>
-    </div>
+    </main>
   );
 };
 

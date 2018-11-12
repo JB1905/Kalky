@@ -6,39 +6,58 @@ import Screen from '../../../components/Screens';
 import { ConverterKeyboard } from '../../../components/Keyboards';
 import { SelectUnit } from '../../../components/Select';
 
-import '../Convert.scss';
+export default function Units({ location }) {
+  const [rates, setRates] = useState([]);
 
-export default function Units(props) {
+  useEffect(() => {
+    setRates(convert().possibilities(location.pathname.replace('/', '')));
+
+    return () => null;
+  }, []);
+
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
-  const [value, setValue] = useState('0');
-  const [converted, setConverted] = useState('0');
 
-  if (value && from && to) {
-    useEffect(
-      () => {
-        setConverted(
-          convert(value)
-            .from(from)
-            .to(to)
-        );
+  useEffect(
+    () => {
+      setFrom(rates[0]);
+      setTo(rates[0]);
+    },
+    [rates]
+  );
 
-        return null;
-      },
-      [value, from, to]
-    );
-  }
+  const [value, setValue] = useState(0);
+  const [converted, setConverted] = useState(0);
+
+  useEffect(
+    () => {
+      setConverted(
+        from && to
+          ? convert(value)
+              .from(from)
+              .to(to)
+          : value
+      );
+
+      return () => null;
+    },
+    [value, from, to]
+  );
 
   return (
     <>
-      <Title location={props.location.pathname} />
+      <Title location={location.pathname} />
 
       <Screen value={value} />
-      <SelectUnit units={props.location.pathname} onChange={e => setFrom(e)} />
-      <SelectUnit units={props.location.pathname} onChange={e => setTo(e)} />
+
+      <section>
+        <SelectUnit units={rates} onChange={e => setFrom(e)} />
+        <SelectUnit units={rates} onChange={e => setTo(e)} />
+      </section>
+
       <Screen value={converted} />
 
-      <ConverterKeyboard {...props} clicked={e => setValue(e || '0')} />
+      <ConverterKeyboard location={location} clicked={e => setValue(e || 0)} />
     </>
   );
 }

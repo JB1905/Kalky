@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Currency({ onChange, units, change }) {
+export default function Currency({ onChange, units }) {
   const [possibilities, setPossibilities] = useState([]);
   const [selected, setSelected] = useState('');
 
@@ -17,9 +17,9 @@ export default function Currency({ onChange, units, change }) {
       setPossibilities(options);
       setSelected(options[0]);
 
-      if (change !== selected) setSelected(change);
+      return () => null;
     },
-    [units, change]
+    [units]
   );
 
   return (

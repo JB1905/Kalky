@@ -15,6 +15,8 @@ export default function Converter({ clicked, location }) {
     else setPositive(false);
 
     document.addEventListener('keydown', e => operation(e.key));
+
+    return () => document.removeEventListener('keydown', e => operation(e.key));
   }, []);
 
   function operation(key) {
@@ -42,8 +44,10 @@ export default function Converter({ clicked, location }) {
     clicked(value.toString().replace(/,/g, ''));
   }
 
+  useEffect(() => clicked(value.toString().replace(/,/g, '')), value);
+
   return (
-    <div className="keyboard">
+    <section className="keyboard">
       <Input isWide={true} action={() => operation('clear')} value="C" />
 
       <Input
@@ -71,6 +75,6 @@ export default function Converter({ clicked, location }) {
 
       <Input isWide={!positive} action={() => operation(0)} value="0" />
       <Input action={() => operation('point')} value="." />
-    </div>
+    </section>
   );
 }
