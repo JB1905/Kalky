@@ -19,3 +19,11 @@ input[type="date"] {
     }
   }
 }
+
+.date__differences {
+  padding: 2px 4px;
+
+  > p {
+    padding: 2px 0;
+  }
+}

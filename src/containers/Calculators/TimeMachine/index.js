@@ -7,9 +7,24 @@ import SectionName from '../../../components/SectionName';
 import './TimeMachine.scss';
 
 export default function TimeMachine(props) {
-  const [from, setFrom] = useState(new Date().setHours(0, 0, 0, 0));
-  const [to, setTo] = useState(new Date().setHours(0, 0, 0, 0));
-  const [relative, setRelative] = useState('');
+  const date = new Date();
+  date.setHours(0, 0, 0, 0);
+
+  const year = date.getFullYear();
+  const month =
+    (date.getMonth() + 1).toString().length > 1
+      ? date.getMonth() + 1
+      : `0${date.getMonth()}`;
+  const day =
+    date.getDate().toString().length > 1
+      ? date.getDate()
+      : `0${date.getDate()}`;
+
+  const defaultDate = `${year}-${month}-${day}`;
+
+  const [from, setFrom] = useState(defaultDate);
+  const [to, setTo] = useState(defaultDate);
+  const [relative, setRelative] = useState(0);
 
   useEffect(() => setRelative(new DateDiff(new Date(to), new Date(from))), [
     to,
@@ -27,9 +42,11 @@ export default function TimeMachine(props) {
       <input type="date" value={to} onChange={e => setTo(e.target.value)} />
 
       <SectionName name="Difference:" />
-      <p>in days: {relative && relative.days()}</p>
-      <p>in months: {relative && relative.months()}</p>
-      <p>in years: {relative && relative.years()}</p>
+      <div className="date__differences">
+        <p>in days: {relative && relative.days()}</p>
+        <p>in months: {relative && relative.months()}</p>
+        <p>in years: {relative && relative.years()}</p>
+      </div>
     </>
   );
 }
