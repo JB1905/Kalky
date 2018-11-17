@@ -1,50 +1,63 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import convert from 'convert-units';
 
-import '../Convert.css';
-
-import { Screen } from '../../../components/Screen';
-import { ConverterKeyboard } from '../../../components/Keyboard';
-import { Title } from '../../../components/Title';
+import Title from '../../../components/Title';
+import Screen from '../../../components/Screens';
+import { ConverterKeyboard } from '../../../components/Keyboards';
 import { SelectUnit } from '../../../components/Select';
 
-export default class Units extends Component {
-  state = { val: null, from: '', to: '', converted: null };
+export default function Units({ location }) {
+  const [rates, setRates] = useState([]);
 
-  componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.val !== this.state.val ||
-      prevState.from !== this.state.from ||
-      prevState.to !== this.state.to
-    )
-      this.convert();
-  }
+  useEffect(() => {
+    setRates(convert().possibilities(location.pathname.replace('/', '')));
 
-  handleClick = val => this.setState({ val });
-  from = from => this.setState({ from });
-  to = to => this.setState({ to });
+    return () => null;
+  }, []);
 
-  convert = () => {
-    const converted = convert(this.state.val)
-      .from(this.state.from)
-      .to(this.state.to);
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
 
-    this.setState({ converted });
-  };
+  useEffect(
+    () => {
+      setFrom(rates[0]);
+      setTo(rates[0]);
+    },
+    [rates]
+  );
 
-  render() {
-    return (
-      <React.Fragment>
-        <Title location={this.props.location.pathname} />
-        <Screen value={this.state.val || '0'} />
+  const [value, setValue] = useState(0);
+  const [converted, setConverted] = useState(0);
 
-        <SelectUnit units={this.props.location.pathname} onChange={this.from} />
-        <SelectUnit units={this.props.location.pathname} onChange={this.to} />
+  useEffect(
+    () => {
+      setConverted(
+        from && to
+          ? convert(value)
+              .from(from)
+              .to(to)
+          : value
+      );
 
-        <Screen value={this.state.converted || '0'} />
+      return () => null;
+    },
+    [value, from, to]
+  );
 
-        <ConverterKeyboard {...this.props} clicked={this.handleClick} />
-      </React.Fragment>
-    );
-  }
+  return (
+    <>
+      <Title location={location.pathname} />
+
+      <Screen value={value} />
+
+      <section>
+        <SelectUnit units={rates} onChange={e => setFrom(e)} />
+        <SelectUnit units={rates} onChange={e => setTo(e)} />
+      </section>
+
+      <Screen value={converted} />
+
+      <ConverterKeyboard location={location} clicked={e => setValue(e || 0)} />
+    </>
+  );
 }

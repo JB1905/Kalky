@@ -1,0 +1,19 @@
+.content {
+  background: transparent;
+  position: fixed;
+  padding: 26px 10px 12px 10px;
+  width: 250px;
+  height: 100vh;
+  top: 0;
+  right: 0;
+
+  @at-root {
+    .light & {
+      background-color: #d0d0d099;
+    }
+
+    .dark & {
+      background-color: #2a2a2e99;
+    }
+  }
+}

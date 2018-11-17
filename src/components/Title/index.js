@@ -1,9 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import './Title.css';
+import './Title.scss';
 
 import { toTitle, locationToTitle } from '../../helpers';
 
-export const Title = ({ location }) => (
+const Title = ({ location }) => (
   <h2 className="screen__title">{locationToTitle(toTitle(location))}</h2>
 );
+
+Title.propTypes = {
+  location: PropTypes.string.isRequired
+};
+
+export default Title;

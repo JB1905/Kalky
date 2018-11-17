@@ -1,0 +1,21 @@
+select {
+  vertical-align: middle;
+  margin: 4px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  outline: none;
+  background: transparent;
+  height: 30px;
+  width: calc(50% - 8px);
+
+  @at-root {
+    .light & {
+      border: 2px solid #888;
+    }
+
+    .dark & {
+      border: 2px solid #777;
+    }
+  }
+}

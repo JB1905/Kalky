@@ -1,0 +1,29 @@
+input[type="date"] {
+  height: 30px;
+  margin: 6px 4px;
+  outline: 0;
+  width: calc(100% - 8px);
+  padding: 0 7px;
+  font-size: 16px;
+  font-weight: 500;
+  background: transparent;
+  border-radius: 6px;
+
+  @at-root {
+    .light & {
+      border: 2px solid #888;
+    }
+
+    .dark & {
+      border: 2px solid #777;
+    }
+  }
+}
+
+.date__differences {
+  padding: 2px 4px;
+
+  > p {
+    padding: 2px 0;
+  }
+}
