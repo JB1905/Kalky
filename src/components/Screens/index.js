@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './Screen.scss';
 
 const Screen = ({ className = '', value }) => (
-  <div className={`screen ${className}`}>{value}</div>
+  <section className={`screen ${className}`}>{value}</section>
 );
 
 Screen.propTypes = {

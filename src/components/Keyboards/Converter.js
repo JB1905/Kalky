@@ -24,7 +24,10 @@ export default function Converter({ clicked, location }) {
       value.push(key);
     } else {
       if (key === 'point' || key.match(/[.,]+/)) {
-        if (!value.includes('.')) value.push('.');
+        if (!value.includes('.')) {
+          if (value.length > 0 && !value.includes('0.')) value.push('.');
+          else if (value.length === 0) value.push('0.');
+        }
       } else if (key === 'delete' || key === 'Backspace') {
         value.pop();
 
@@ -44,7 +47,7 @@ export default function Converter({ clicked, location }) {
     clicked(value.toString().replace(/,/g, ''));
   }
 
-  useEffect(() => clicked(value.toString().replace(/,/g, '')), value);
+  useEffect(() => clicked(value.toString().replace(/,/g, '')), [value]);
 
   return (
     <section className="keyboard">

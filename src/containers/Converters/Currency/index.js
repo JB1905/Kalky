@@ -6,7 +6,7 @@ import Screen from '../../../components/Screens';
 import { ConverterKeyboard } from '../../../components/Keyboards';
 import { SelectCurrency } from '../../../components/Select';
 
-import '../Convert.scss';
+import './Currency.scss';
 
 import { getCurrency } from '../../../api';
 

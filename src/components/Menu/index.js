@@ -7,6 +7,13 @@ import './Menu.scss';
 
 const Menu = () => (
   <nav className="menu">
+    <h2>Calculators</h2>
+    <ul>
+      <li>
+        <NavLink to="/date">Date</NavLink>
+      </li>
+    </ul>
+
     <h2>Converters</h2>
     <ul>
       <li>
