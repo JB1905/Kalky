@@ -25,8 +25,8 @@ export default function Currency({ location }) {
     return () => null;
   }, []);
 
-  const [from, setFrom] = useState(null);
-  const [to, setTo] = useState(null);
+  const [from, setFrom] = useState('');
+  const [to, setTo] = useState('');
   const [value, setValue] = useState(0);
   const [converted, setConverted] = useState(0);
 

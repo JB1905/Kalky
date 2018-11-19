@@ -1,6 +1,6 @@
 .keyboard {
   margin-top: 6px;
-  height: 51vh;
+  height: 52vh;
 
   button {
     vertical-align: top;
@@ -8,13 +8,13 @@
     cursor: pointer;
     font-size: 20px;
     font-weight: 500;
-    width: calc(100% / 3 - 6px);
-    height: calc(100% / 5 - 6px);
-    margin: 3px;
-    border-radius: 6px;
+    width: calc(100% / 3 - 4px);
+    height: calc(100% / 5 - 4px);
+    margin: 2px;
+    border-radius: 2px;
 
     &.wide {
-      margin-left: calc(100% / 3 + 3px);
+      margin-left: calc(100% / 3 + 2px);
     }
 
     &:active {
