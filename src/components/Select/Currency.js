@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Currency({ onChange, units }) {
+export default function Currency({ onChange, units, offset }) {
   const [possibilities, setPossibilities] = useState([]);
   const [selected, setSelected] = useState('');
 
@@ -12,14 +12,15 @@ export default function Currency({ onChange, units }) {
 
   useEffect(
     () => {
-      const options = Object.keys(units);
+      const options = Object.keys(units).filter(unit => unit !== offset);
 
       setPossibilities(options);
-      setSelected(options[0]);
+
+      if (!selected) setSelected(options[0]);
 
       return () => null;
     },
-    [units]
+    [units, offset]
   );
 
   return (
@@ -36,5 +37,6 @@ export default function Currency({ onChange, units }) {
 Currency.propTypes = {
   onChange: PropTypes.func,
   units: PropTypes.oneOfType([PropTypes.shape(), PropTypes.array]),
-  change: PropTypes.string
+  change: PropTypes.string,
+  offset: PropTypes.string
 };

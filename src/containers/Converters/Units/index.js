@@ -21,7 +21,7 @@ export default function Units({ location }) {
   useEffect(
     () => {
       setFrom(rates[0]);
-      setTo(rates[0]);
+      setTo(rates[1]);
     },
     [rates]
   );
@@ -51,8 +51,16 @@ export default function Units({ location }) {
       <Screen value={value} />
 
       <section>
-        <SelectUnit units={rates} onChange={e => setFrom(e)} />
-        <SelectUnit units={rates} onChange={e => setTo(e)} />
+        <SelectUnit
+          offset={to ? to : rates[1]}
+          units={rates}
+          onChange={e => setFrom(e)}
+        />
+        <SelectUnit
+          offset={from ? from : rates[0]}
+          units={rates}
+          onChange={e => setTo(e)}
+        />
       </section>
 
       <Screen value={converted} />

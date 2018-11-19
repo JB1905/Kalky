@@ -21,7 +21,9 @@ export default function Converter({ clicked, location }) {
 
   function operation(key) {
     if (typeof key === 'number' || key.match(/[0-9]+/)) {
-      value.push(key);
+      if (value.length > 0 || (value.length === 0 && key.toString() !== '0')) {
+        value.push(key);
+      }
     } else {
       if (key === 'point' || key.match(/[.,]+/)) {
         if (!value.includes('.')) {
@@ -46,8 +48,6 @@ export default function Converter({ clicked, location }) {
 
     clicked(value.toString().replace(/,/g, ''));
   }
-
-  useEffect(() => clicked(value.toString().replace(/,/g, '')), [value]);
 
   return (
     <section className="keyboard">
