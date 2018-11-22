@@ -8,14 +8,15 @@ input[type="date"] {
   font-weight: 500;
   background: transparent;
   border-radius: 2px;
+  border: 0;
 
   @at-root {
     .light & {
-      border: 2px solid #888;
+      background-color: #ccc;
     }
 
     .dark & {
-      border: 2px solid #777;
+      background-color: #555b;
     }
   }
 }
