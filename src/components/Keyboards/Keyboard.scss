@@ -1,9 +1,9 @@
 .keyboard {
-  margin-top: 6px;
-  height: 52vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
 
   button {
-    vertical-align: top;
     transition: transform 140ms ease;
     cursor: pointer;
     font-size: 20px;
