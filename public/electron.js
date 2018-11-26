@@ -40,10 +40,12 @@ const createWindow = () => {
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
 
-  systemPreferences.subscribeNotification(
-    'AppleInterfaceThemeChangedNotification',
-    () => setTheme(systemPreferences.isDarkMode())
-  );
+  if (process.platform === 'darwin') {
+    systemPreferences.subscribeNotification(
+      'AppleInterfaceThemeChangedNotification',
+      () => setTheme(systemPreferences.isDarkMode())
+    );
+  }
 
   mainWindow.once('ready-to-show', () => {
     setTheme(systemPreferences.isDarkMode());
