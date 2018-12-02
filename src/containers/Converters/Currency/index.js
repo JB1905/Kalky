@@ -18,6 +18,8 @@ export default function Currency({ location }) {
     getCurrency().then(data => {
       setDate(data.date.replace(/-/g, '.'));
       setRates((fx.rates = data.rates));
+      setFrom(Object.keys(fx.rates)[0]);
+      setTo(Object.keys(fx.rates)[1]);
     });
 
     return () => null;
@@ -49,8 +51,16 @@ export default function Currency({ location }) {
       <Screen value={value} />
 
       <section>
-        <SelectCurrency units={rates} onChange={e => setFrom(e)} />
-        <SelectCurrency units={rates} onChange={e => setTo(e)} />
+        <SelectCurrency
+          offset={to ? to : Object.keys(rates)[1]}
+          units={rates}
+          onChange={e => setFrom(e)}
+        />
+        <SelectCurrency
+          offset={from ? from : Object.keys(rates)[0]}
+          units={rates}
+          onChange={e => setTo(e)}
+        />
       </section>
 
       <Screen value={converted} />

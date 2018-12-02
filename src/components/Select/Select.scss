@@ -1,21 +1,24 @@
 select {
   vertical-align: middle;
-  margin: 4px;
-  border-radius: 6px;
+  margin: 2px;
+  padding: 0 8px;
+  border-radius: 2px;
   font-weight: 500;
   font-size: 16px;
   outline: none;
   background: transparent;
+  -webkit-appearance: none;
   height: 30px;
   width: calc(50% - 8px);
+  border: 0;
 
   @at-root {
     .light & {
-      border: 2px solid #888;
+      background-color: #ccc;
     }
 
     .dark & {
-      border: 2px solid #777;
+      background-color: #555b;
     }
   }
 }

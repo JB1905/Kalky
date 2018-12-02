@@ -1,27 +1,28 @@
 input[type="date"] {
   height: 30px;
-  margin: 6px 4px;
+  margin: 6px 2px;
   outline: 0;
-  width: calc(100% - 8px);
+  width: calc(100% - 4px);
   padding: 0 7px;
   font-size: 16px;
   font-weight: 500;
   background: transparent;
-  border-radius: 6px;
+  border-radius: 2px;
+  border: 0;
 
   @at-root {
     .light & {
-      border: 2px solid #888;
+      background-color: #ccc;
     }
 
     .dark & {
-      border: 2px solid #777;
+      background-color: #555b;
     }
   }
 }
 
 .date__differences {
-  padding: 2px 4px;
+  padding: 2px;
 
   > p {
     padding: 2px 0;

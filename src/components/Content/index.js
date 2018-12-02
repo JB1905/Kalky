@@ -4,8 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 
 import { MenuToggle } from '../Toggle';
 
-import Currency from '../../containers/Converters/Currency';
 import TimeMachine from '../../containers/Calculators/TimeMachine';
+
+import Currency from '../../containers/Converters/Currency';
 import { ContentList } from '../Lists';
 
 import './Content.scss';
@@ -18,8 +19,9 @@ const Content = ({ history }) => {
       <MenuToggle />
 
       <Switch>
-        <Route exact path="/currency" component={Currency} />
         <Route exact path="/date" component={TimeMachine} />
+
+        <Route exact path="/currency" component={Currency} />
         <ContentList />
       </Switch>
     </main>

@@ -16,8 +16,8 @@ let ready = false;
 
 const createWindow = () => {
   const mainWindowState = windowState({
-    defaultWidth: 400,
-    defaultHeight: 500
+    defaultWidth: 500,
+    defaultHeight: 400
   });
 
   mainWindow = new BrowserWindow({
@@ -26,6 +26,7 @@ const createWindow = () => {
     width: mainWindowState.width,
     height: mainWindowState.height,
     show: false,
+    frame: false,
     fullscreen: false,
     maximizable: false,
     resizable: false,
@@ -40,10 +41,12 @@ const createWindow = () => {
       : `file://${path.join(__dirname, '../build/index.html')}`
   );
 
-  systemPreferences.subscribeNotification(
-    'AppleInterfaceThemeChangedNotification',
-    () => setTheme(systemPreferences.isDarkMode())
-  );
+  if (process.platform === 'darwin') {
+    systemPreferences.subscribeNotification(
+      'AppleInterfaceThemeChangedNotification',
+      () => setTheme(systemPreferences.isDarkMode())
+    );
+  }
 
   mainWindow.once('ready-to-show', () => {
     setTheme(systemPreferences.isDarkMode());

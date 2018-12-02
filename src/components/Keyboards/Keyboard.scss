@@ -1,20 +1,20 @@
 .keyboard {
-  margin-top: 6px;
-  height: 51vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
 
   button {
-    vertical-align: top;
     transition: transform 140ms ease;
     cursor: pointer;
     font-size: 20px;
     font-weight: 500;
-    width: calc(100% / 3 - 6px);
-    height: calc(100% / 5 - 6px);
-    margin: 3px;
-    border-radius: 6px;
+    width: calc(100% / 3 - 4px);
+    height: calc(100% / 5 - 4px);
+    margin: 2px;
+    border-radius: 2px;
 
     &.wide {
-      margin-left: calc(100% / 3 + 3px);
+      margin-left: calc(100% / 3 + 2px);
     }
 
     &:active {
@@ -24,11 +24,11 @@
 
   @at-root {
     .light & button {
-      border: 2px solid #888;
+      background-color: #ccc;
     }
 
     .dark & button {
-      border: 2px solid #777;
+      background-color: #555b;
     }
   }
 }

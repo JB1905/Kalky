@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Unit({ onChange, units }) {
+export default function Unit({ onChange, units, offset }) {
   const [possibilities, setPossibilities] = useState([]);
   const [selected, setSelected] = useState('');
 
@@ -12,12 +12,15 @@ export default function Unit({ onChange, units }) {
 
   useEffect(
     () => {
-      setPossibilities(units);
-      setSelected(units[0]);
+      const options = units.filter(unit => unit !== offset);
+
+      setPossibilities(options);
+
+      if (!selected) setSelected(options[0]);
 
       return () => null;
     },
-    [units]
+    [units, offset]
   );
 
   return (
@@ -34,5 +37,6 @@ export default function Unit({ onChange, units }) {
 Unit.propTypes = {
   onChange: PropTypes.func,
   units: PropTypes.oneOfType([PropTypes.shape(), PropTypes.array]),
-  change: PropTypes.string
+  change: PropTypes.string,
+  offset: PropTypes.string
 };
