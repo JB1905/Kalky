@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Input = ({ value, children, action, isWide }) => (
-  <button className={isWide && 'wide'} onClick={action}>
-    {value ? value : children}
+  <button className={isWide ? 'wide' : ''} onClick={action}>
+    {value || children}
   </button>
 );
 

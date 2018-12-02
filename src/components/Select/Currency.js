@@ -12,7 +12,9 @@ export default function Currency({ onChange, units, offset }) {
 
   useEffect(
     () => {
-      const options = Object.keys(units).filter(unit => unit !== offset);
+      const options = Object.keys(units).filter(
+        unit => unit !== offset && unit !== ''
+      );
 
       setPossibilities(options);
 
