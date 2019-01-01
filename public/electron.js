@@ -77,7 +77,7 @@ const createWindow = () => {
           label: 'See on GitHub',
           click() {
             require('electron').shell.openExternal(
-              'https://github.com/JB1905/Kalky'
+              'https://github.com/JB1905/kalky'
             );
           }
         }
