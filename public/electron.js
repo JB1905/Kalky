@@ -30,7 +30,10 @@ const createWindow = () => {
     fullscreen: false,
     maximizable: false,
     resizable: false,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    webPreferences: {
+      preload: path.join(__dirname, '/preload.js')
+    }
   });
 
   mainWindowState.manage(mainWindow);

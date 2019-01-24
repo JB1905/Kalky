@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Menu.scss';
 
-const { ipcRenderer } = window.require('electron');
+const ipcRenderer = window.ipcRenderer;
 
 const Menu = () => (
   <button
