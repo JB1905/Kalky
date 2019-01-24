@@ -5,7 +5,7 @@ import Drag from './components/Drag';
 import Menu from './components/Menu';
 import Content from './components/Content';
 
-const { ipcRenderer } = window.require('electron');
+const ipcRenderer = window.ipcRenderer;
 
 export default function App() {
   ipcRenderer.on('light', () => {

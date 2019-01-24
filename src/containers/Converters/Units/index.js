@@ -18,13 +18,10 @@ export default function Units({ location }) {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
 
-  useEffect(
-    () => {
-      setFrom(rates[0]);
-      setTo(rates[1]);
-    },
-    [rates]
-  );
+  useEffect(() => {
+    setFrom(rates[0]);
+    setTo(rates[1]);
+  }, [rates]);
 
   const [value, setValue] = useState(0);
   const [converted, setConverted] = useState(0);

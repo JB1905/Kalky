@@ -10,18 +10,15 @@ export default function Unit({ onChange, units, offset }) {
     onChange(e.target.value);
   };
 
-  useEffect(
-    () => {
-      const options = units.filter(unit => unit !== offset);
+  useEffect(() => {
+    const options = units.filter(unit => unit !== offset);
 
-      setPossibilities(options);
+    setPossibilities(options);
 
-      if (!selected) setSelected(options[0]);
+    if (!selected) setSelected(options[0]);
 
-      return () => null;
-    },
-    [units, offset]
-  );
+    return () => null;
+  }, [units, offset]);
 
   return (
     <select value={selected} onChange={choose}>
