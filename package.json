@@ -33,7 +33,7 @@
     "electron": "^4.0.0-beta.7",
     "electron-builder": "^20.37.0",
     "money": "^0.2.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.12.0",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
     "react-router-dom": "^4.4.0-beta.6",
