@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { faBackspace } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -7,6 +7,42 @@ import Input from '../Input';
 export default function Converter({ clicked, location }) {
   const [positive, setPositive] = useState(null);
   const [value] = useState([]);
+
+  const operation = useCallback(
+    key => {
+      if (typeof key === 'number' || key.match(/[0-9]+/)) {
+        if (
+          value.length > 0 ||
+          (value.length === 0 && key.toString() !== '0')
+        ) {
+          value.push(key);
+        }
+      } else {
+        if (key === 'point' || key.match(/[.,]+/)) {
+          if (!value.includes('.')) {
+            if (value.length > 0 && !value.includes('0.')) value.push('.');
+            else if (value.length === 0) value.push('0.');
+          }
+        } else if (key === 'delete' || key === 'Backspace') {
+          value.pop();
+
+          if (value.length === 1 && value.includes('-')) {
+            value.splice(0, value.length);
+          }
+        } else if (key === 'clear' || key === 'Escape') {
+          value.splice(0, value.length);
+        } else if (key === 'positive') {
+          if ((value.length === 1 && !value.includes(0)) || value.length > 1) {
+            if (!value.includes('-')) value.unshift('-');
+            else value.shift();
+          }
+        }
+      }
+
+      clicked(value.toString().replace(/,/g, ''));
+    },
+    [clicked, value]
+  );
 
   useEffect(() => {
     const routes = ['/temperature', '/pressure'];
@@ -17,37 +53,7 @@ export default function Converter({ clicked, location }) {
     document.addEventListener('keydown', e => operation(e.key));
 
     return () => document.removeEventListener('keydown', e => operation(e.key));
-  }, []);
-
-  function operation(key) {
-    if (typeof key === 'number' || key.match(/[0-9]+/)) {
-      if (value.length > 0 || (value.length === 0 && key.toString() !== '0')) {
-        value.push(key);
-      }
-    } else {
-      if (key === 'point' || key.match(/[.,]+/)) {
-        if (!value.includes('.')) {
-          if (value.length > 0 && !value.includes('0.')) value.push('.');
-          else if (value.length === 0) value.push('0.');
-        }
-      } else if (key === 'delete' || key === 'Backspace') {
-        value.pop();
-
-        if (value.length === 1 && value.includes('-')) {
-          value.splice(0, value.length);
-        }
-      } else if (key === 'clear' || key === 'Escape') {
-        value.splice(0, value.length);
-      } else if (key === 'positive') {
-        if ((value.length === 1 && !value.includes(0)) || value.length > 1) {
-          if (!value.includes('-')) value.unshift('-');
-          else value.shift();
-        }
-      }
-    }
-
-    clicked(value.toString().replace(/,/g, ''));
-  }
+  }, [location.pathname, operation]);
 
   return (
     <section className="keyboard">
