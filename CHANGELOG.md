@@ -2,9 +2,10 @@
 
 ## 1.0.0 (2019)
 #### New Feature
-- mathematic constants library
-- OCR implementation
-- Drag and drop
+- allow window resize & fullscreen
+- add mathematic constants library
+- add OCR implementation
+- add drag and drop
 
 ## 0.9.0 (2019)
 #### New Feature
