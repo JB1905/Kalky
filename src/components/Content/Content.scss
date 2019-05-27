@@ -1,5 +1,4 @@
 .content {
-  background: transparent;
   position: fixed;
   padding: 26px 10px 10px;
   width: 250px;
@@ -11,11 +10,11 @@
 
   @at-root {
     .light & {
-      background-color: #d0d0d099;
+      background-color: #d5d5d199;
     }
 
     .dark & {
-      background-color: #2a2a2e99;
+      background-color: #2a2a2e66;
     }
   }
 }

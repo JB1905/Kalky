@@ -9,16 +9,18 @@ select {
   background: transparent;
   -webkit-appearance: none;
   height: 30px;
-  width: calc(50% - 8px);
+  width: calc(50% - 21px);
   border: 0;
 
   @at-root {
     .light & {
-      background-color: #ccc;
+      background-color: #aaa5;
+      border: 1px solid #bbb4;
     }
 
     .dark & {
-      background-color: #555b;
+      background-color: #555a;
+      border: 1px solid #444b;
     }
   }
 }

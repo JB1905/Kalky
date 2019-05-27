@@ -4,22 +4,22 @@ import { Route, Switch } from 'react-router-dom';
 
 import { MenuToggle } from '../Toggle';
 
-import TimeMachine from '../../containers/Calculators/TimeMachine';
+import TimeMachine from '../../screens/Calculators/TimeMachine';
 
-import Currency from '../../containers/Converters/Currency';
+import Currency from '../../screens/Converters/Currency';
 import { ContentList } from '../Lists';
 
 import './Content.scss';
 
-const Content = ({ history }) => {
-  useEffect(() => history.push({ pathname: '/currency' }), []);
+const Content = ({ history, ...props }) => {
+  useEffect(() => history.push({ pathname: '/currency' }), [history]);
 
   return (
     <main className="content">
       <MenuToggle />
 
       <Switch>
-        <Route exact path="/date" component={TimeMachine} />
+        <Route exact path="/dateCalculation" component={TimeMachine} />
 
         <Route exact path="/currency" component={Currency} />
         <ContentList />
