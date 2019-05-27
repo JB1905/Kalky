@@ -7,20 +7,26 @@ import './Menu.scss';
 
 const Menu = () => (
   <nav className="menu">
-    <h2>Calculators</h2>
-    <ul>
-      <li>
-        <NavLink to="/date">Date</NavLink>
-      </li>
-    </ul>
+    <div>
+      <h2>Calculators</h2>
 
-    <h2>Converters</h2>
-    <ul>
-      <li>
-        <NavLink to="/currency">Currency</NavLink>
-      </li>
-      <MenuList />
-    </ul>
+      <ul>
+        <li>
+          <NavLink to="/dateCalculation">Date Calculation</NavLink>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>Converters</h2>
+
+      <ul>
+        <li>
+          <NavLink to="/currency">Currency</NavLink>
+        </li>
+        <MenuList />
+      </ul>
+    </div>
   </nav>
 );
 
