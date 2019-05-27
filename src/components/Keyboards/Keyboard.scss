@@ -4,14 +4,14 @@
   flex: 1;
 
   button {
-    transition: transform 140ms ease;
-    cursor: pointer;
     font-size: 20px;
     font-weight: 500;
     width: calc(100% / 3 - 4px);
     height: calc(100% / 5 - 4px);
-    margin: 2px;
+    transition: transform 140ms ease;
     border-radius: 2px;
+    cursor: pointer;
+    margin: 2px;
 
     &.wide {
       margin-left: calc(100% / 3 + 2px);
