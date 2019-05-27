@@ -1,26 +1,43 @@
 # Kalky Changelog
 
-## Next v2
+## 1.0.0 (2019)
 #### New Feature
+- mathematic constants library
 - OCR implementation
 - Drag and drop
-- programmer calculator view
 
-## Next v1
+## 0.9.0 (2019)
 #### New Feature
-- constants library
-- scientific calculator view
-- history
-- memory
-- copy/paste results
+- add history
+- add memory
+- add standard calculator
+- add programmer calculator view
+- add scientific calculator view
 
-## Next v0
+#### Change
+- add icons to menu items
+- add sticky headers in menu
+
+#### Internal
+- rewrite with redux
+
+## 0.8.0 (2019)
 #### New Feature
-- add basic calculator view
-- add switch units for converters
+- added switch units for converters
+- added new options in Date calculator
+- added copy/paste/cut options to screen results
+- added function to refresh currency on click on date element
 
 #### Improvement
+- disable units duplicate in selects
+- added full dark mode support for macOS Mojave
 - better screen values output (max length)
+
+#### Change
+- redesigned inputs & improved UI
+
+#### Bug Fix
+- disabled multiple `0` values
 
 ## 0.7.0 (2018-11-17)
 #### New Feature

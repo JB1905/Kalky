@@ -58,8 +58,11 @@ const createWindow = () => {
   });
 
   ipcMain.on('menu-toggle', () => {
-    if (mainWindowState.width === 250) mainWindow.setSize(500, 400, true);
-    else mainWindow.setSize(250, 400, true);
+    if (mainWindowState.width === 250) {
+      mainWindow.setSize(500, 400, true);
+    } else {
+      mainWindow.setSize(250, 400, true);
+    }
   });
 
   mainWindow.on('close', e => {
@@ -69,6 +72,14 @@ const createWindow = () => {
   });
 
   const template = [
+    {
+      label: 'Edit',
+      submenu: [
+        { label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:' },
+        { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+        { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' }
+      ]
+    },
     {
       role: 'window',
       submenu: [{ role: 'minimize' }, { role: 'close' }]
