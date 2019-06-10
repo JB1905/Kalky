@@ -6,14 +6,14 @@
   right: 250px;
   width: 250px;
 
-  h2 {
+  &__title {
     font-size: 18px;
     text-transform: uppercase;
     margin-bottom: 8px;
     padding: 0 14px;
   }
 
-  ul {
+  &__list {
     padding-bottom: 22px;
 
     &:last-child {

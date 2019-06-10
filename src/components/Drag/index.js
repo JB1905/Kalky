@@ -9,12 +9,18 @@ const main = remote.getCurrentWindow();
 const Drag = () => (
   <div className="drag">
     {navigator.platform.toLowerCase() === 'win32' && (
-      <div>
-        <button onClick={() => main.minimize()}>
+      <div className="drag__controls drag__controls--window">
+        <button
+          className="drag__control drag__control--minimize"
+          onClick={() => main.minimize()}
+        >
           <span>&#xE921;</span>
         </button>
 
-        <button onClick={() => main.close()}>
+        <button
+          className="drag__control drag__control--close"
+          onClick={() => main.close()}
+        >
           <span>&#xE8BB;</span>
         </button>
       </div>

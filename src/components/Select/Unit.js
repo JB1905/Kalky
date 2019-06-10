@@ -19,7 +19,7 @@ export default function Unit({ onChange, units, offset }) {
   }, [units, offset, selected]);
 
   return (
-    <select value={selected} onChange={choose}>
+    <select className="select__input" value={selected} onChange={choose}>
       {possibilities.map(possibility => (
         <option key={possibility} value={possibility}>
           {possibility}

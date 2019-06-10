@@ -9,7 +9,7 @@ const ipcRenderer = window.ipcRenderer;
 const Menu = () => (
   <button
     type="button"
-    className="menu__toggle"
+    className="toggle toggle--menu"
     onClick={() => ipcRenderer.send('menu-toggle', 'true')}
   >
     <FontAwesomeIcon icon={faBars} />
