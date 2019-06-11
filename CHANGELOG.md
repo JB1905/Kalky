@@ -22,7 +22,7 @@
 #### Internal
 - rewrite with redux
 
-## 0.8.0 (2019)
+## 0.8.0 (2019-06-11)
 #### New Feature
 - added switch units for converters
 - added new options in Date calculator
