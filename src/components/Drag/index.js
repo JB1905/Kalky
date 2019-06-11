@@ -14,14 +14,14 @@ const Drag = () => (
           className="drag__control drag__control--minimize"
           onClick={() => main.minimize()}
         >
-          <span>&#xE921;</span>
+          <span className="drag__icon">&#xE921;</span>
         </button>
 
         <button
           className="drag__control drag__control--close"
           onClick={() => main.close()}
         >
-          <span>&#xE8BB;</span>
+          <span className="drag__icon">&#xE8BB;</span>
         </button>
       </div>
     )}
