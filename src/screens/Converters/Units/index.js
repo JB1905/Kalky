@@ -48,7 +48,7 @@ export default function Units({ location }) {
     <>
       <Title location={location.pathname} />
 
-      <Screen value={value} />
+      <Screen value={value} className="converter" />
 
       <section>
         <SelectUnit
@@ -66,7 +66,7 @@ export default function Units({ location }) {
         />
       </section>
 
-      <Screen value={converted} />
+      <Screen value={converted} className="converter" />
 
       <ConverterKeyboard
         location={location}

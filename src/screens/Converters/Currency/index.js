@@ -56,7 +56,7 @@ export default function Currency({ location }) {
       <Title location={location.pathname} />
       <time onClick={loadRates}>{date}</time>
 
-      <Screen value={value} />
+      <Screen value={value} className="converter" />
 
       <section>
         <SelectCurrency
@@ -74,7 +74,7 @@ export default function Currency({ location }) {
         />
       </section>
 
-      <Screen value={converted} />
+      <Screen value={converted} className="converter" />
 
       <ConverterKeyboard
         location={location}
