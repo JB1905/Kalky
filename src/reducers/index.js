@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
-import memoryReducer from './memory';
 import historyReducer from './history';
+import memoryReducer from './memory';
 import windowReducer from './window';
 
 const rootReducer = combineReducers({
-  memory: memoryReducer,
   history: historyReducer,
+  memory: memoryReducer,
   window: windowReducer
 });
 

@@ -56,7 +56,7 @@ export default function Converter({ clicked, location }) {
   }, [location.pathname, operation]);
 
   return (
-    <section className="keyboard">
+    <section className="keyboard keyboard--converter">
       <Input isWide={true} action={() => operation('clear')} value="C" />
 
       <Input
