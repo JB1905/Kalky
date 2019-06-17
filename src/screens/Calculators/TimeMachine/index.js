@@ -28,17 +28,13 @@ const TimeMachine = ({ dateTab, setDateTab, location }) => (
   </>
 );
 
-const mapStateToProps = state => {
-  return {
-    dateTab: state.window.dateTab
-  };
-};
+const mapStateToProps = state => ({
+  dateTab: state.window.dateTab
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setDateTab: tab => dispatch({ type: 'SET_DATE_TAB', payload: tab })
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  setDateTab: tab => dispatch({ type: 'SET_DATE_TAB', payload: tab })
+});
 
 export default connect(
   mapStateToProps,

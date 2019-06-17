@@ -3,9 +3,9 @@ import { createStore } from 'redux';
 import { loadHistory, saveHistory } from './reducers/history';
 import { loadMemory, saveMemory } from './reducers/memory';
 
-import reducers from './reducers';
+import rootReducer from './reducers';
 
-const store = createStore(reducers, {
+const store = createStore(rootReducer, {
   history: loadHistory(),
   memory: loadMemory(),
   window: {

@@ -15,11 +15,9 @@ const History = ({ toggleMemo }) => (
   </button>
 );
 
-const mapDispachToProps = dispatch => {
-  return {
-    toggleMemo: () => dispatch({ type: 'TOGGLE_MEMORY_TAB' })
-  };
-};
+const mapDispachToProps = dispatch => ({
+  toggleMemo: () => dispatch({ type: 'TOGGLE_MEMORY_TAB' })
+});
 
 export default connect(
   null,
