@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Relative from './Views/Relative';
@@ -10,33 +10,33 @@ import Tabs from '../../../components/Tabs';
 
 import './TimeMachine.scss';
 
-const TimeMachine = ({ dateTab, setDateTab, location }) => (
-  <>
-    <Title location={location.pathname} />
+const TimeMachine = ({ location }) => {
+  const dateTab = useSelector(state => state.window.dateTab);
 
-    <Tabs>
-      <button className="tabs__item" onClick={() => setDateTab('relative')}>
-        Relative
-      </button>
+  const dispatch = useDispatch();
 
-      <button className="tabs__item" onClick={() => setDateTab('absolute')}>
-        Absolute
-      </button>
-    </Tabs>
+  const setDateTab = useCallback(
+    tab => dispatch({ type: 'SET_DATE_TAB', payload: tab }),
+    [dispatch]
+  );
 
-    {dateTab === 'relative' ? <Relative /> : <Absolute />}
-  </>
-);
+  return (
+    <>
+      <Title location={location.pathname} />
 
-const mapStateToProps = state => ({
-  dateTab: state.window.dateTab
-});
+      <Tabs>
+        <button className="tabs__item" onClick={() => setDateTab('relative')}>
+          Relative
+        </button>
 
-const mapDispatchToProps = dispatch => ({
-  setDateTab: tab => dispatch({ type: 'SET_DATE_TAB', payload: tab })
-});
+        <button className="tabs__item" onClick={() => setDateTab('absolute')}>
+          Absolute
+        </button>
+      </Tabs>
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(TimeMachine));
+      {dateTab === 'relative' ? <Relative /> : <Absolute />}
+    </>
+  );
+};
+
+export default withRouter(TimeMachine);
