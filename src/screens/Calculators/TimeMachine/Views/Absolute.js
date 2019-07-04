@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import SectionName from '../../../../components/SectionName';
-
 export default function Absolute() {
   const [date, setDate] = useState(new Date());
   date.setHours(0, 0, 0, 0);
@@ -57,7 +55,7 @@ export default function Absolute() {
 
   return (
     <div className="date date--absolute">
-      <SectionName name="From:" />
+      <h4 className="date__section-name">From:</h4>
       <input
         type="date"
         className="date__from"
@@ -123,7 +121,7 @@ export default function Absolute() {
         </label>
       </div>
 
-      <SectionName name="Date:" />
+      <h4 className="date__section-name">Date:</h4>
       <div className="date__differences">
         <p>{relative}</p>
       </div>

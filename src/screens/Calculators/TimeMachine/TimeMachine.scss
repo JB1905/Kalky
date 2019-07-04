@@ -37,6 +37,10 @@
     display: flex;
   }
 
+  &__section-name {
+    margin: 12px 2px 2px;
+  }
+
   &__field {
     flex: 1;
     width: calc(100% / 3 - 4px);

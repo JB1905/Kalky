@@ -5,3 +5,7 @@ export const toTitle = location => {
 export const locationToTitle = location => {
   return location.substring(1, location.length);
 };
+
+export const pattern = location => {
+  return location.pathname.replace('/', '');
+};

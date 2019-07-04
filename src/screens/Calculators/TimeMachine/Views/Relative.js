@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DateDiff from 'date-diff';
 
-import SectionName from '../../../../components/SectionName';
-
 export default function Relative() {
   const date = new Date();
   date.setHours(0, 0, 0, 0);
@@ -30,7 +28,7 @@ export default function Relative() {
 
   return (
     <div className="date date--relative">
-      <SectionName name="From:" />
+      <h4 className="date__section-name">From:</h4>
       <input
         type="date"
         className="date__from"
@@ -38,7 +36,7 @@ export default function Relative() {
         value={from}
       />
 
-      <SectionName name="To:" />
+      <h4 className="date__section-name">To:</h4>
       <input
         type="date"
         className="date__to"
@@ -46,7 +44,7 @@ export default function Relative() {
         value={to}
       />
 
-      <SectionName name="Difference:" />
+      <h4 className="date__section-name">Difference:</h4>
       <div className="date__differences">
         <p>in days: {relative && relative.days()}</p>
         <p>in months: {relative && relative.months()}</p>

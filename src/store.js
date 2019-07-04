@@ -7,12 +7,7 @@ import rootReducer from './reducers';
 
 const store = createStore(rootReducer, {
   history: loadHistory(),
-  memory: loadMemory(),
-  window: {
-    showMemo: false,
-    memoTab: 'memory',
-    dateTab: 'relative'
-  }
+  memory: loadMemory()
 });
 
 store.subscribe(() => {
