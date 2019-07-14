@@ -46,9 +46,15 @@ export default function Relative() {
 
       <h4 className="date__section-name">Difference:</h4>
       <div className="date__differences">
-        <p>in days: {relative && relative.days()}</p>
-        <p>in months: {relative && relative.months()}</p>
-        <p>in years: {relative && relative.years()}</p>
+        {isNaN(relative.difference) ? (
+          'Input correct dates'
+        ) : (
+          <>
+            <p>in days: {relative.days()}</p>
+            <p>in months: {relative.months()}</p>
+            <p>in years: {relative.years()}</p>
+          </>
+        )}
       </div>
     </div>
   );

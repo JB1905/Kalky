@@ -19,16 +19,14 @@
     background: transparent;
     border-radius: 2px;
 
-    @at-root {
-      .light & {
-        background-color: #aaa5;
-        border: 1px solid #bbb4;
-      }
+    body.light & {
+      background-color: #aaa5;
+      border: 1px solid #bbb4;
+    }
 
-      .dark & {
-        background-color: #555a;
-        border: 0 solid #bbb4;
-      }
+    body.dark & {
+      background-color: #555a;
+      border: 0 solid #bbb4;
     }
   }
 
@@ -60,16 +58,14 @@
     font-size: 16px;
     width: 100%;
 
-    @at-root {
-      .light & {
-        background-color: #aaa5;
-        border: 1px solid #bbb4;
-      }
+    body.light & {
+      background-color: #aaa5;
+      border: 1px solid #bbb4;
+    }
 
-      .dark & {
-        background-color: #555a;
-        border: 1px solid #444b;
-      }
+    body.dark & {
+      background-color: #555a;
+      border: 1px solid #444b;
     }
   }
 

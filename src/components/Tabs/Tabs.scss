@@ -16,15 +16,13 @@
     &:active {
       transform: scale(0.9);
     }
-  }
 
-  @at-root {
-    .light & button {
+    body.light & {
       background-color: #aaa5;
       border: 1px solid #bbb4;
     }
 
-    .dark & button {
+    body.dark & {
       background-color: #555a;
       border: 1px solid #444b;
     }

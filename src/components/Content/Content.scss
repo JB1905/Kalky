@@ -8,13 +8,11 @@
   display: flex;
   flex-direction: column;
 
-  @at-root {
-    .light & {
-      background-color: #d5d5d199;
-    }
+  body.light & {
+    background-color: #d5d5d199;
+  }
 
-    .dark & {
-      background-color: #2a2a2e66;
-    }
+  body.dark & {
+    background-color: #2a2a2e66;
   }
 }

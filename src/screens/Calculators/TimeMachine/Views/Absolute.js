@@ -123,7 +123,7 @@ export default function Absolute() {
 
       <h4 className="date__section-name">Date:</h4>
       <div className="date__differences">
-        <p>{relative}</p>
+        <p>{relative.includes('NaN') ? 'Input correct date' : relative}</p>
       </div>
     </div>
   );
