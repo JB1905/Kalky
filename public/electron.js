@@ -132,22 +132,29 @@ const createWindow = () => {
 const setTheme = theme => {
   if (theme) {
     mainWindow.setVibrancy('ultra-dark');
-    mainWindow.webContents.send('dark');
   } else {
     mainWindow.setVibrancy('medium-light');
-    mainWindow.webContents.send('light');
   }
 };
 
-app.on('before-quit', () => (mainWindow.forceClose = true));
+app.on('before-quit', () => {
+  mainWindow.forceClose = true;
+});
 
-app.on('ready', () => createWindow());
+app.on('ready', () => {
+  createWindow();
+});
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('activate', () => {
-  if (!mainWindow) createWindow();
-  else if (mainWindow && ready) mainWindow.show();
+  if (!mainWindow) {
+    createWindow();
+  } else if (mainWindow && ready) {
+    mainWindow.show();
+  }
 });

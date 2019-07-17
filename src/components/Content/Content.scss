@@ -8,11 +8,11 @@
   display: flex;
   flex-direction: column;
 
-  body.light & {
+  @media (prefers-color-scheme: light) {
     background-color: #d5d5d199;
   }
 
-  body.dark & {
+  @media (prefers-color-scheme: dark) {
     background-color: #2a2a2e66;
   }
 }

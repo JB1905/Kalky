@@ -17,12 +17,12 @@
       transform: scale(0.9);
     }
 
-    body.light & {
+    @media (prefers-color-scheme: light) {
       background-color: #aaa5;
       border: 1px solid #bbb4;
     }
 
-    body.dark & {
+    @media (prefers-color-scheme: dark) {
       background-color: #555a;
       border: 1px solid #444b;
     }

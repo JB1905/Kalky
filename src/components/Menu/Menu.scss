@@ -37,7 +37,7 @@
     }
   }
 
-  body.light & {
+  @media (prefers-color-scheme: light) {
     border-right: 1px solid #bbb;
 
     a {
@@ -51,7 +51,7 @@
     }
   }
 
-  body.dark & {
+  @media (prefers-color-scheme: dark) {
     border-right: 1px solid #444;
 
     a {

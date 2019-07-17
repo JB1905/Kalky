@@ -8,22 +8,18 @@
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media (prefers-color-scheme: light) {
+    color: #444;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    color: #ddd;
+  }
 }
 
 body {
   user-select: none;
-
-  * {
-    color: #888;
-  }
-
-  &.light * {
-    color: #444;
-  }
-
-  &.dark * {
-    color: #ddd;
-  }
 }
 
 button {
