@@ -130,11 +130,7 @@ const createWindow = () => {
 };
 
 const setTheme = theme => {
-  if (theme) {
-    mainWindow.setVibrancy('ultra-dark');
-  } else {
-    mainWindow.setVibrancy('medium-light');
-  }
+  mainWindow.setVibrancy(theme ? 'ultra-dark' : 'sidebar');
 };
 
 app.on('before-quit', () => {

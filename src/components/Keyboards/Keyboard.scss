@@ -18,6 +18,16 @@
     &:active {
       transform: scale(0.9);
     }
+
+    @media (prefers-color-scheme: light) {
+      background-color: #aaa5;
+      border: 1px solid #bbb4;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      background-color: #555a;
+      border: 1px solid #444b;
+    }
   }
 
   &--converter {
@@ -27,15 +37,27 @@
     }
   }
 
-  @at-root {
-    .light & button {
-      background-color: #aaa5;
-      border: 1px solid #bbb4;
+  &--standard {
+    button {
+      font-size: 18px;
+      width: calc(100% / 4 - 4px);
+      height: calc(100% / 6 - 4px);
     }
+  }
 
-    .dark & button {
-      background-color: #555a;
-      border: 1px solid #444b;
+  &--scientific {
+    button {
+      font-size: 15px;
+      width: calc(100% / 5 - 4px);
+      height: calc(100% / 7 - 4px);
+    }
+  }
+
+  &--programmer {
+    button {
+      font-size: 15px;
+      width: calc(100% / 6 - 4px);
+      height: calc(100% / 6 - 4px);
     }
   }
 }
