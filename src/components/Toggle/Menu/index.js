@@ -1,19 +1,22 @@
 import React from 'react';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDispatch } from 'react-redux';
 
 import './Menu.scss';
 
-const ipcRenderer = window.ipcRenderer;
+const Menu = () => {
+  const dispatch = useDispatch();
 
-const Menu = () => (
-  <button
-    type="button"
-    className="toggle toggle--menu"
-    onClick={() => ipcRenderer.send('menu-toggle', 'true')}
-  >
-    <FontAwesomeIcon icon={faBars} />
-  </button>
-);
+  return (
+    <button
+      type="button"
+      className="toggle toggle--menu"
+      onClick={() => dispatch({ type: 'TOGGLE_MENU' })}
+    >
+      <FontAwesomeIcon icon={faBars} />
+    </button>
+  );
+};
 
 export default Menu;

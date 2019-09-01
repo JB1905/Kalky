@@ -22,17 +22,26 @@
     }
 
     a {
+      display: flex;
+      align-items: center;
       transition: background-color 200ms ease;
       white-space: nowrap;
       padding: 10px 14px;
-      display: block;
       width: 100%;
       font-weight: 500;
       font-size: 19px;
       text-decoration: none;
 
-      &::first-letter {
-        text-transform: uppercase;
+      svg {
+        min-width: 30px;
+      }
+
+      span {
+        margin-left: 10px;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
     }
   }
