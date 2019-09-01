@@ -3898,10 +3898,10 @@ electron-window-state@^5.0.3:
     jsonfile "^4.0.0"
     mkdirp "^0.5.1"
 
-electron@6.0.0-beta.6:
-  version "6.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-6.0.0-beta.6.tgz#11b8395b9dd25f9ecf79beaac726e18031b71c0d"
-  integrity sha512-w09md+UPBd7p20divMi91cOYYvIYtfOYFjc4Gm+ki8HVRTQlHpnhq752Suzie2NyGKIJYoK5MZbF06HIyPxO4g==
+electron@6.0.7:
+  version "6.0.7"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-6.0.7.tgz#cf3f02502aa58d1517f3befd9c2da2a95cd2eb46"
+  integrity sha512-W0TFnJrBdYBUhzRnEqZt/CfYFmG9RwSnhhXBbOumn/qLQYr9e7kXb6z4y0XQQLhXKkDhuXp+dNqfzhtId5ZiQw==
   dependencies:
     "@types/node" "^10.12.18"
     electron-download "^4.1.0"
