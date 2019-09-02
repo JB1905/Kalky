@@ -8,4 +8,13 @@
   &--converter {
     font-size: 30px;
   }
+
+  &--standard,
+  &--scientific,
+  &--programmer {
+    font-size: 38px;
+    text-align: right;
+    justify-content: flex-end;
+    height: 12vh;
+  }
 }

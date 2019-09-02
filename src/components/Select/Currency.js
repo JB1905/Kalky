@@ -17,7 +17,9 @@ export default function Currency({ onChange, units, offset }) {
 
     setPossibilities(options);
 
-    if (!selected) setSelected(options[0]);
+    if (!selected) {
+      setSelected(options[0]);
+    }
   }, [units, offset, selected]);
 
   return (
@@ -34,6 +36,5 @@ export default function Currency({ onChange, units, offset }) {
 Currency.propTypes = {
   onChange: PropTypes.func,
   units: PropTypes.oneOfType([PropTypes.shape(), PropTypes.array]),
-  change: PropTypes.string,
   offset: PropTypes.string
 };

@@ -15,7 +15,9 @@ export default function Unit({ onChange, units, offset }) {
 
     setPossibilities(options);
 
-    if (!selected) setSelected(options[0]);
+    if (!selected) {
+      setSelected(options[0]);
+    }
   }, [units, offset, selected]);
 
   return (

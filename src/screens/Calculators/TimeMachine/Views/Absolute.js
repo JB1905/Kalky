@@ -25,7 +25,9 @@ export default function Absolute() {
   const [months, setMonths] = useState(0);
   const [days, setDays] = useState(0);
 
-  useEffect(() => setDate(new Date(from)), [from]);
+  useEffect(() => {
+    setDate(new Date(from));
+  }, [from]);
 
   useEffect(() => {
     const newDate = new Date();
