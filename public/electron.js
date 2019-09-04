@@ -3,7 +3,8 @@ const {
   BrowserWindow,
   Menu,
   ipcMain,
-  systemPreferences
+  systemPreferences,
+  nativeTheme
 } = require('electron');
 
 const path = require('path');
@@ -47,22 +48,22 @@ const createWindow = () => {
   if (process.platform === 'darwin') {
     systemPreferences.subscribeNotification(
       'AppleInterfaceThemeChangedNotification',
-      () => setTheme(systemPreferences.isDarkMode())
+      () => setTheme(nativeTheme.shouldUseDarkColors)
     );
   }
 
   mainWindow.once('ready-to-show', () => {
-    setTheme(systemPreferences.isDarkMode());
+    setTheme(nativeTheme.shouldUseDarkColors);
     mainWindow.show();
     ready = true;
   });
 
-  ipcMain.on('menu-toggle', () => {
-    if (mainWindowState.width === 250) {
-      mainWindow.setSize(500, 400, true);
-    } else {
-      mainWindow.setSize(250, 400, true);
-    }
+  ipcMain.on('open-menu', () => {
+    mainWindow.setSize(500, 400, true);
+  });
+
+  ipcMain.on('close-menu', () => {
+    mainWindow.setSize(250, 400, true);
   });
 
   mainWindow.on('close', e => {
