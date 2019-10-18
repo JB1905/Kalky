@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { withRouter } from 'react-router';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 
 import { MenuToggle, HistoryToggle } from '../Toggle';
 
@@ -16,7 +15,10 @@ import { pattern } from '../../helpers';
 
 import './Content.scss';
 
-const Content = ({ history, location }) => {
+const Content = () => {
+  const history = useHistory();
+  const location = useLocation();
+
   useEffect(() => history.push({ pathname: '/standard' }), [history]);
 
   const showHistory = ['standard', 'scientific', 'programmer'];
@@ -40,4 +42,4 @@ const Content = ({ history, location }) => {
   );
 };
 
-export default withRouter(Content);
+export default Content;

@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import Relative from './Views/Relative';
 import Absolute from './Views/Absolute';
@@ -10,7 +10,9 @@ import Tabs from '../../../components/Tabs';
 
 import './TimeMachine.scss';
 
-const TimeMachine = ({ location }) => {
+const TimeMachine = () => {
+  const location = useLocation();
+
   const dateTab = useSelector(state => state.window.dateTab);
 
   const dispatch = useDispatch();
@@ -39,4 +41,4 @@ const TimeMachine = ({ location }) => {
   );
 };
 
-export default withRouter(TimeMachine);
+export default TimeMachine;
