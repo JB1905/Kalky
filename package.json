@@ -1,13 +1,13 @@
 {
-  "name": "Kalky",
-  "version": "0.8.0",
+  "name": "kalky",
+  "version": "1.0.0",
   "description": "Electron & React desktop calculator app",
   "author": "Jakub Biesiada",
   "license": "MIT",
   "private": true,
   "homepage": ".",
   "repository": "https://github.com/JB1905/kalky",
-  "main": "./public/electron.js",
+  "main": "./build/electron.js",
   "scripts": {
     "start": "concurrently \"BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "build": "react-scripts build",
@@ -15,37 +15,80 @@
     "pack:linux": "electron-builder build -l",
     "pack:windows": "electron-builder build -w",
     "pack:all": "electron-builder build -mlw",
-    "prettier": "prettier --write '{src,public}/**/*.{js,scss,html}'",
+    "prettier": "prettier --write '{src,public}/**/*.{tsx,ts,scss,html}'",
     "eslint": "eslint 'src/**/*.js' --fix",
     "stylelint": "stylelint 'src/**/*.scss' --fix",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "commit": "git-cz"
   },
   "dependencies": {
-    "electron-is-dev": "^1.1.0",
+    "electron-is-dev": "^1.2.0",
     "electron-window-state": "^5.0.3",
-    "update-electron-app": "^1.4.2"
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.19",
-    "@fortawesome/free-solid-svg-icons": "^5.9.0",
-    "@fortawesome/react-fontawesome": "^0.1.4",
-    "concurrently": "^4.1.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^10.4.0",
+    "@types/convert-units": "^2.3.1",
+    "@types/jest": "^25.2.3",
+    "@types/mathjs": "^6.0.5",
+    "@types/node": "^14.0.5",
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-image-crop": "^8.1.2",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "concurrently": "^5.2.0",
     "convert-units": "^2.3.4",
-    "date-diff": "^0.2.1",
-    "electron": "6.0.0-beta.6",
-    "electron-builder": "20.43.0",
+    "cz-conventional-changelog": "3.2.0",
+    "date-diff": "^0.2.2",
+    "electron": "^10.0.0-beta.1",
+    "electron-builder": "^22.7.0",
+    "electron-devtools-installer": "^3.0.0",
     "fancy-textfill": "^1.2.5",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.7",
+    "mathjs": "^7.0.0",
     "money": "^0.2.0",
-    "node-sass": "^4.12.0",
-    "prettier": "^1.18.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.0.1",
-    "stylelint": "^10.1.0",
-    "stylelint-config-standard": "^18.3.0",
-    "wait-on": "^3.2.0"
+    "node-sass": "^4.14.1",
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-image-crop": "^8.6.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "stylelint": "^13.5.0",
+    "stylelint-config-standard": "^20.0.0",
+    "tesseract.js": "^2.1.1",
+    "typescript": "~3.9.3",
+    "wait-on": "^5.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,public}/**/*.{js}": [
+      "npm run prettier",
+      "npm run eslint"
+    ],
+    "src/**/*.{scss}": [
+      "npm run prettier",
+      "npm run stylelint"
+    ],
+    "public/**/*.{html}": [
+      "npm run prettier"
+    ]
   },
   "build": {
     "mac": {
@@ -57,5 +100,10 @@
   },
   "browserslist": [
     "last 2 Electron versions"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

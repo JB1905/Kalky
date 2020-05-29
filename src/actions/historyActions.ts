@@ -1,0 +1,6 @@
+export const HISTORY_ADD = 'HISTORY_ADD';
+export const HISTORY_CLEAR = 'HISTORY_CLEAR';
+export const HISTORY_RECALL = 'HISTORY_RECALL';
+// export const HISTORY_STORE = 'HISTORY_STORE';
+export const HISTORY_SUBSTRACT = 'HISTORY_SUBSTRACT';
+// export const HISTORY_EXPORT = 'HISTORY_EXPORT';
