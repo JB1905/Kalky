@@ -34,7 +34,7 @@
     "convert-units": "^2.3.4",
     "date-diff": "^0.2.1",
     "electron": "6.0.0-beta.6",
-    "electron-builder": "20.43.0",
+    "electron-builder": "22.7.0",
     "fancy-textfill": "^1.2.5",
     "money": "^0.2.0",
     "node-sass": "^4.12.0",
