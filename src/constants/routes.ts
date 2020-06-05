@@ -4,7 +4,7 @@ export const routes = {
     { name: 'Scientific', path: '/scientific', icon: '' },
     { name: 'Programmer', path: '/programmer', icon: '' },
     { name: 'Date Calculation', path: '/date-calculation', icon: '' },
-    { name: 'Scanner', path: '/scanner', icon: '' },
+    // { name: 'Scanner', path: '/scanner', icon: '' },
   ],
   converters: [{ name: 'Currency', path: '/currency', icon: '' }],
 };

@@ -1,9 +1,9 @@
 import { Rates } from './Rates';
 
 export interface CurrencyRatesSuccess {
-  success: boolean;
-  timestamp: number;
-  base: string;
-  date: string;
-  rates: Rates;
+  readonly success: boolean;
+  readonly timestamp: number;
+  readonly base: string;
+  readonly date: string;
+  readonly rates: Rates;
 }

@@ -3,10 +3,10 @@ import { render } from '@testing-library/react';
 
 import App from './App';
 
-describe('Drag', () => {
+describe('App', () => {
   it('should render', () => {
-    const {} = render(<App />);
+    const { container } = render(<App />);
 
-    expect();
+    expect(container);
   });
 });
