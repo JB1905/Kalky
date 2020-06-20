@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // import { MenuList } from '../Lists';
 
@@ -27,23 +27,23 @@ const Menu: React.FC = () => (
       </ul>
     </div>
 
-    {/* <div className="menu__section">
+    <div className="menu__section">
       <h2 className="menu__title">Converters</h2>
 
       <ul className="menu__list">
         {routes.converters.map(({ name, path }) => (
           <li>
             <NavLink to={path}>
-              <FontAwesomeIcon icon={icons.basic} />
+              {/* <FontAwesomeIcon icon={icons.basic} /> */}
 
               <span>{name}</span>
             </NavLink>
           </li>
         ))}
 
-        <MenuList />
+        {/* <MenuList /> */}
       </ul>
-    </div> */}
+    </div>
   </nav>
 );
 

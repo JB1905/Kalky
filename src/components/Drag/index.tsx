@@ -8,15 +8,15 @@ declare global {
   }
 }
 
-const remote = window.remote;
+// const remote = window.remote;
 
-const main = remote.getCurrentWindow();
+// const main = remote.getCurrentWindow();
 
 const Drag: React.FC = () => (
   <div className="drag">
     {navigator.platform.toLowerCase() === 'win32' && (
       <div className="drag__controls drag__controls--window">
-        <button
+        {/* <button
           className="drag__control drag__control--minimize"
           onClick={main.minimize}
         >
@@ -28,7 +28,7 @@ const Drag: React.FC = () => (
           onClick={main.close}
         >
           <span className="drag__icon">&#xE8BB;</span>
-        </button>
+        </button> */}
       </div>
     )}
   </div>
