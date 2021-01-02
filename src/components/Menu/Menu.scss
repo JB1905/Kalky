@@ -1,17 +1,16 @@
 .menu {
-  padding-top: 26px;
   position: fixed;
   height: 100vh;
   overflow: auto;
-  right: 250px;
-  width: 250px;
+  padding-top: var(--status-bar-size);
+  right: var(--menu-size);
+  width: var(--menu-size);
 
   &__title {
     top: 0;
-    font-size: 1.8rem;
-    text-transform: uppercase;
     margin-bottom: 8px;
-    padding: 0 14px;
+    font-size: 1.4rem;
+    padding: 0 var(--spaces-horizontal);
   }
 
   &__section {
@@ -24,13 +23,24 @@
     a {
       display: flex;
       align-items: center;
-      transition: background-color 200ms ease;
-      white-space: nowrap;
-      padding: 10px 14px;
-      width: 100%;
       font-weight: 500;
-      font-size: 1.9rem;
+      transition: background-color 200ms ease;
+      padding: 10px var(--spaces-horizontal);
+      white-space: nowrap;
       text-decoration: none;
+      position: relative;
+      width: 100%;
+
+      &.active {
+        &::before {
+          content: "";
+          width: calc(100% - 2 * var(--spaces-horizontal));
+          height: 100%;
+          position: absolute;
+          background-color: #0001;
+          border-radius: var(--rounded-corners);
+        }
+      }
 
       svg {
         min-width: 30px;

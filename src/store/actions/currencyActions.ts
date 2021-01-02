@@ -29,7 +29,7 @@ export const getCurrencyRates = () => async (dispatch: Dispatch) => {
 
   try {
     const res = await fetch(
-      `http://data.fixer.io/api/latest?access_key=${process.env.REACT_APP_CURRENCY_API_ACCESS_KEY}`
+      `https://data.fixer.io/api/latest?access_key=${process.env.REACT_APP_CURRENCY_API_ACCESS_KEY}`
     );
 
     const data: CurrencyRatesSuccess = await res.json();

@@ -2,9 +2,10 @@
   top: 0;
   right: 0;
   display: flex;
+  background-color: #fff2;
   flex-direction: column;
   padding: 26px 10px 10px;
+  width: var(--menu-size);
   position: fixed;
-  width: 250px;
   height: 100vh;
 }

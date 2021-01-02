@@ -6,6 +6,5 @@ export const routes = {
     { name: 'Date Calculation', path: '/date-calculation', icon: '' },
     { name: 'Scanner', path: '/scanner', icon: '' },
   ],
-  converters: [
-    { name: 'Currency', path: '/currency', icon: '' }],
+  converters: [{ name: 'Currency', path: '/currency', icon: '' }],
 };

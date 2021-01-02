@@ -1,25 +1,25 @@
-import React, { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 
 // import { MenuToggle, HistoryToggle } from '../Toggle';
 
-// import Standard from 'screens/Calculators/Standard';
-// import Scientific from 'screens/Calculators/Scientific';
-// import Programmer from 'screens/Calculators/Programmer';
-// import TimeMachine from 'screens/Calculators/TimeMachine';
+const Standard = lazy(() => import('screens/Calculators/Standard'));
+const Scientific = lazy(() => import('screens/Calculators/Scientific'));
+const Programmer = lazy(() => import('screens/Calculators/Programmer'));
+const TimeMachine = lazy(() => import('screens/Calculators/TimeMachine'));
 
-// import Currency from 'screens/Converters/Currency';
+const Currency = lazy(() => import('screens/Calculators/TimeMachine'));
 // import { ContentList } from '../Lists';
 
-// import Scanner from 'screens/Scanner';
+const Scanner = lazy(() => import('screens/Scanner'));
 
 // import { pattern } from 'helpers';
 
-// import { routes } from '../../constants/routes';
+// import { routes } from '../../routes';
 
 import './Content.scss';
 
-const Content: React.FC = () => {
+const Content = () => {
   // const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,9 +29,9 @@ const Content: React.FC = () => {
 
   return (
     <main className="content">
-      {/* <MenuToggle />
+      {/* <MenuToggle /> */}
 
-      {showHistory.includes(pattern(location)) && <HistoryToggle />} */}
+      {/* {showHistory.includes(pattern(location)) && <HistoryToggle />} */}
 
       <Switch>
         {/* <Route exact path={routes.standard} component={Standard} />
@@ -39,10 +39,10 @@ const Content: React.FC = () => {
         <Route exact path={routes.programmer} component={Programmer} />
         <Route exact path={routes.dateCalculation} component={TimeMachine} />
 
-        <Route exact path={routes.currency} component={Currency} />
-        <ContentList />
+        <Route exact path={routes.currency} component={Currency} /> */}
+        {/* <ContentList /> */}
 
-        <Route exact path={routes.scanner} component={Scanner} /> */}
+        {/* <Route exact path={routes.scanner} component={Scanner} /> */}
       </Switch>
     </main>
   );

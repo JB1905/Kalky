@@ -1,18 +1,23 @@
-import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Drag from 'components/Drag';
+// import Menu from 'components/Menu';
+// import Content from 'components/Content';
 
-import Menu from 'containers/Menu';
-import Content from 'containers/Content';
+import Scanner from './screens/Scanner';
 
-const App: React.FC = () => (
-  <Router>
+const App = () => (
+  <>
     <Drag />
 
-    <Menu />
-    <Content />
-  </Router>
+    <Router>
+      {/* <Menu /> */}
+
+      <Scanner />
+
+      {/* <Content /> */}
+    </Router>
+  </>
 );
 
 export default App;

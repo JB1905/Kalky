@@ -1,11 +1,10 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faFileExport } from '@fortawesome/free-solid-svg-icons';
 
 import { RootState } from '../../../reducers';
 
-const History: React.FC = () => {
+const History = () => {
   const dispatch = useDispatch();
 
   const history = useSelector((state: RootState) => state.history.items);

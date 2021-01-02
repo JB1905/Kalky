@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import fx from 'money';
 
@@ -12,7 +12,7 @@ import fx from 'money';
 
 import './Currency.scss';
 
-const Currency: React.FC<RouteComponentProps> = ({ location }) => {
+const Currency = ({ location }: RouteComponentProps) => {
   // const [date, setDate] = useState('Loading...');
   // const [rates, setRates] = useState([]);
   // const [from, setFrom] = useState('');

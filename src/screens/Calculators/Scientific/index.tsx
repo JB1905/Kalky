@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ import Data from '../../Data';
 
 import { RootState } from '../../../reducers';
 
-const Scientific: React.FC<RouteComponentProps> = ({ location }) => {
+const Scientific = ({ location }: RouteComponentProps) => {
   const {
     value,
     //  showMemo

@@ -1,11 +1,10 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // import { MemoAdd, MemoSubstract, MemoRemove } from '../../../components/Memo';
 
 import { RootState } from '../../../reducers';
 
-const Memory: React.FC = () => {
+const Memory = () => {
   const dispatch = useDispatch();
 
   const {

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import History from './History';
@@ -10,7 +10,7 @@ import { RootState } from '../../reducers';
 
 import './Data.scss';
 
-const Data: React.FC = () => {
+const Data = () => {
   const dispatch = useDispatch();
 
   // const memoTab = useSelector((state: RootState) => state.window.memoTab);

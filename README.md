@@ -18,13 +18,13 @@ Electron & React desktop calculator app
 ##### 1. Clone repo
 
 ```sh
-git clone https://github.com/JB1905/kalky.git
+$ git clone https://github.com/JB1905/kalky.git
 ```
 
 ##### 2. Go to directory
 
 ```sh
-cd kalky
+$ cd /path/to/kalky
 ```
 
 ## Build with

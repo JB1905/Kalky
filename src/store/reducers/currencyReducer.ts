@@ -4,9 +4,9 @@ import {
   CURRENCY_RATES_ERROR,
 } from '../actions';
 
-import { CurrencyState } from '../interfaces/CurrencyState';
+import { CurrencyState } from '../../interfaces/CurrencyState';
 
-import type { CurrencyActionTypes } from '../types/CurrencyActionTypes';
+import type { CurrencyActionTypes } from '../../types/CurrencyActionTypes';
 
 const initialState: CurrencyState = {
   isLoading: false,

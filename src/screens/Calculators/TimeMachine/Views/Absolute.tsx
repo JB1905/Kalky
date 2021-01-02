@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const Absolute: React.FC = () => {
+const Absolute = () => {
   // const [date, setDate] = useState(new Date());
   // date.setHours(0, 0, 0, 0);
 

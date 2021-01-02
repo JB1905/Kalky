@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import DateDiff from 'date-diff';
 
-const Relative: React.FC = () => {
+const Relative = () => {
   // const date = new Date();
   // date.setHours(0, 0, 0, 0);
 

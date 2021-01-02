@@ -1,29 +1,29 @@
 const featureFlags = {
-    converters: false,
-    basic: false,
-    scientific: false,
-    programmer:false,
-    date:false,
-    colorConvert: false,
-    ocr: false,
+  converters: false,
+  basic: false,
+  scientific: false,
+  programmer: false,
+  date: false,
+  colorConvert: false,
+  ocr: false,
 
-    mathPhysicalConstants: false,
+  mathPhysicalConstants: false,
 
-    screenImprovements: false,
+  screenImprovements: false,
 
-    icons: false,
-    stickyMenu: false,
-    dragAndDrop: false,
+  icons: false,
+  stickyMenu: false,
+  dragAndDrop: false,
 
-    windowResize: false,
-    fullScreen:false,
-    multiWindow:false,
+  windowResize: false,
+  fullScreen: false,
+  multiWindow: false,
 
-    history: false,
-    memory: false,
-    clipboard: false,
+  history: false,
+  memory: false,
+  clipboard: false,
 
-    themes: false,
+  themes: false,
 };
 
 export const isFeatureEnabled = (name) => featureFlags[name];

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import { RootState } from '../../../reducers';
 
 import './TimeMachine.scss';
 
-const TimeMachine: React.FC<RouteComponentProps> = ({ location }) => {
+const TimeMachine = ({ location }: RouteComponentProps) => {
   // const dateTab = useSelector((state: RootState) => state.window.dateTab);
 
   const dispatch = useDispatch();

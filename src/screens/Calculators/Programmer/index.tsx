@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ import Data from '../../Data';
 
 import { RootState } from '../../../reducers';
 
-const Programmer: React.FC<RouteComponentProps> = ({ location }) => {
+const Programmer = ({ location }: RouteComponentProps) => {
   const dispatch = useDispatch();
 
   const {

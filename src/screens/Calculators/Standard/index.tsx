@@ -1,4 +1,3 @@
-import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -11,7 +10,7 @@ import Data from '../../Data';
 
 import { RootState } from '../../../reducers';
 
-const Standard: React.FC<RouteComponentProps> = ({ location }) => {
+const Standard = ({ location }: RouteComponentProps) => {
   const {
     value,
     //  showMemo

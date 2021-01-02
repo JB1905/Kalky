@@ -1,50 +1,48 @@
-import React from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/lib/ReactCrop.scss';
 
-// import { useScanner } from 'hooks/useScanner';
-// import { useImageCrop } from 'hooks/useImageCrop';
+import { useScanner } from 'hooks/useScanner';
+import { useImageCrop } from 'hooks/useImageCrop';
 
 import './Scanner.scss';
 
-const Scanner: React.FC = () => {
-  // const { scan, progress, output } = useScanner();
+const Scanner = () => {
+  const { getTextFromImage, progress, output } = useScanner();
 
-  // const {
-  //   src,
-  //   setSrc,
-  //   crop,
-  //   setCrop,
-  //   onImageLoaded,
-  //   onCropComplete,
-  // } = useImageCrop();
+  const {
+    upImg,
+    setUpImg,
+    onLoad,
+    crop,
+    setCrop,
+    setCompletedCrop,
+  } = useImageCrop();
 
   return (
     <div className="scanner">
       <div
         className="scanner__progress"
-        // style={{ width: `${progress * 100}%` }}
+        style={{ width: `${progress * 100}%` }}
       />
 
       <input
         type="file"
         className="scanner__source"
         accept="image/png, image/jpeg"
-        // onChange={(e) => setSrc(e.target.files![0].path)}
+        onChange={(e) => setUpImg(e.target.files![0].path)}
       />
 
-      {/* {src ? (
+      {upImg ? (
         <>
           <ReactCrop
-            src={src}
+            src={upImg}
+            onImageLoaded={onLoad}
             crop={crop}
-            className="scanner__crop"
-            onComplete={onCropComplete}
-            onImageLoaded={onImageLoaded}
-            onChange={setCrop}
+            onChange={(c) => setCrop(c)}
+            onComplete={(c) => setCompletedCrop(c)}
           />
 
-          <button onClick={scan}>Get text</button>
+          <button onClick={getTextFromImage}>Get text</button>
         </>
       ) : (
         <p className="data__empty">Load image</p>
@@ -52,7 +50,7 @@ const Scanner: React.FC = () => {
 
       <div className="scanner__content">
         {output && <textarea value={output} className="scanner__output" />}
-      </div> */}
+      </div>
     </div>
   );
 };
