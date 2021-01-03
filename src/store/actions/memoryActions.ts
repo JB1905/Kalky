@@ -1,7 +1,0 @@
-export const MEMORY_ADD = 'MEMORY_ADD';
-export const MEMORY_CLEAR = 'MEMORY_CLEAR';
-export const MEMORY_RECALL = 'MEMORY_RECALL';
-export const MEMORY_STORE = 'MEMORY_STORE';
-export const MEMORY_SUBSTRACT = 'MEMORY_SUBSTRACT';
-
-// export const
