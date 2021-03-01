@@ -46,7 +46,7 @@
     "convert-units": "^2.3.4",
     "cz-conventional-changelog": "3.3.0",
     "date-diff": "^0.2.2",
-    "electron": "^11.1.1",
+    "electron": "^11.3.0",
     "electron-builder": "^22.9.1",
     "electron-devtools-installer": "^3.1.1",
     "fancy-textfill": "^1.2.5",
